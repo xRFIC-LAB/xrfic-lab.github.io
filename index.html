@@ -7,54 +7,26 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
   <style>
     :root {
-      --navy-950: #06101f;
-      --navy-900: #0b192c;
-      --navy-800: #132845;
-      --cyan-400: #38bdf8;
-      --cyan-500: #0ea5e9;
-      --cyan-600: #0284c7;
-      --slate-50: #f8fafc;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-500: #64748b;
-      --slate-700: #334155;
-      --slate-900: #0f172a;
+      --navy-950: #06101f; --navy-900: #0b192c; --navy-800: #132845;
+      --cyan-400: #38bdf8; --cyan-500: #0ea5e9; --cyan-600: #0284c7;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+      --slate-500: #64748b; --slate-700: #334155; --slate-900: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
-      color: var(--slate-900);
-      background: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; color: var(--slate-900); background: #fff; line-height: 1.6; overflow-x: hidden; }
 
-    /* Navbar */
-    .navbar {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(6, 16, 31, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(56, 189, 248, 0.16);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand { color: #fff; text-decoration: none; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
+    .navbar { position: sticky; top: 0; z-index: 100; background: rgba(6,16,31,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(56,189,248,0.16); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { color: #fff; text-decoration: none; font-weight: 800; font-size: 19px; }
     .brand span { color: var(--cyan-400); }
     .nav-links { display: flex; align-items: center; gap: 18px; }
-    .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 13.5px; font-weight: 600; transition: color .2s; }
+    .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 13.5px; font-weight: 600; }
     .nav-links a:hover { color: var(--cyan-400); }
     .nav-cta { background: var(--cyan-500); color: #06101f !important; padding: 7px 14px; border-radius: 999px; font-weight: 700 !important; }
     .menu-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,.25); color: #fff; font-size: 20px; padding: 4px 10px; border-radius: 8px; cursor: pointer; }
 
-    /* Hero */
-    .hero {
-      background: radial-gradient(circle at 82% 20%, rgba(14,165,233,.24), transparent 48%),
-                  linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%);
-      color: #fff; padding: 68px 20px 84px;
-    }
+    .hero { background: radial-gradient(circle at 82% 20%, rgba(14,165,233,.24), transparent 48%), linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%); color: #fff; padding: 68px 20px 84px; }
     .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .7fr; gap: 36px; align-items: center; }
     .hero-pill { display: inline-block; background: rgba(56,189,248,.14); border: 1px solid rgba(56,189,248,.35); color: var(--cyan-400); font-size: 12px; font-weight: 700; padding: 5px 13px; border-radius: 999px; margin-bottom: 16px; }
     .hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.2; margin-bottom: 14px; word-break: keep-all; }
@@ -63,10 +35,9 @@
     .btn-primary { background: var(--cyan-500); color: #06101f; padding: 11px 22px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 14px; }
     .btn-outline { border: 1px solid rgba(255,255,255,.32); color: #fff; padding: 11px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; }
     .hero-card { background: rgba(255,255,255,.04); border: 1px solid rgba(56,189,248,.22); border-radius: 18px; padding: 24px; }
-    .hero-card h3 { font-size: 14px; color: var(--cyan-400); margin-bottom: 10px; letter-spacing: .04em; text-transform: uppercase; }
+    .hero-card h3 { font-size: 14px; color: var(--cyan-400); margin-bottom: 10px; text-transform: uppercase; }
     .hero-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #e2e8f0; }
 
-    /* Metrics */
     .metrics-wrap { max-width: 1200px; margin: -38px auto 0; padding: 0 20px; position: relative; z-index: 10; }
     .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .metric-card { background: #fff; border: 1px solid var(--slate-200); border-radius: 14px; padding: 20px 16px; text-align: center; box-shadow: 0 10px 24px rgba(15,23,42,.06); }
@@ -74,7 +45,6 @@
     .metric-val span { color: var(--cyan-600); }
     .metric-label { font-size: 12.5px; color: var(--slate-500); font-weight: 600; margin-top: 2px; }
 
-    /* Common Section */
     section { padding: 68px 20px; }
     .sec-gray { background: var(--slate-50); }
     .container { max-width: 1200px; margin: 0 auto; }
@@ -83,30 +53,23 @@
     .sec-title { font-size: clamp(22px, 2.8vw, 28px); font-weight: 800; color: var(--navy-900); margin-bottom: 6px; }
     .sec-desc { font-size: 14.5px; color: var(--slate-500); word-break: keep-all; }
 
-    /* Controls & Tabs */
     .controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 20px; }
     .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tab-btn { border: 1px solid #cbd5e1; background: #fff; color: var(--slate-700); padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; }
-    .tab-btn:hover { border-color: var(--cyan-600); color: var(--cyan-600); }
+    .tab-btn { border: 1px solid #cbd5e1; background: #fff; color: var(--slate-700); padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; }
     .tab-btn.active { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
     .search-input { width: 270px; max-width: 100%; padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 999px; font-size: 13px; outline: none; }
-    .search-input:focus { border-color: var(--cyan-600); }
 
-    /* Grid & Cards */
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .card { background: #fff; border: 1px solid var(--slate-200); border-radius: 14px; padding: 20px; transition: transform .2s, box-shadow .2s; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(15,23,42,.06); }
+    .card { background: #fff; border: 1px solid var(--slate-200); border-radius: 14px; padding: 20px; }
     .pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #e0f2fe; color: var(--cyan-600); }
     .pill-dark { background: var(--navy-900); color: var(--cyan-400); }
     .pill-green { background: #dcfce7; color: #15803d; }
     .pill-amber { background: #fef3c7; color: #b45309; }
     .pill-gray { background: var(--slate-100); color: var(--slate-700); }
 
-    /* News Cards (Google Sheets) */
-    .news-card { background: #fff; border: 1px solid var(--slate-200); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s; }
-    .news-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(15,23,42,.08); }
+    .news-card { background: #fff; border: 1px solid var(--slate-200); border-radius: 14px; overflow: hidden; cursor: pointer; }
     .thumb-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--navy-900), #1e3a5f 60%, #0e7490); overflow: hidden; }
     .thumb-img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .thumb-ph { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; padding: 14px; text-align: center; }
@@ -120,23 +83,17 @@
     .news-card.open .news-detail { display: block; }
     .toggle-hint { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--cyan-600); }
 
-    /* Partners */
     .partner-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     .partner-chip { background: var(--slate-100); border: 1px solid var(--slate-200); padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--slate-700); }
-
-    /* Advisor */
     .advisor-box { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; background: #fff; border: 1px solid var(--slate-200); border-radius: 16px; padding: 26px; margin-bottom: 28px; }
     .advisor-list { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: var(--slate-700); }
     .advisor-list li strong { color: var(--navy-900); margin-right: 6px; }
 
-    /* Achievements List */
     .pub-list { display: flex; flex-direction: column; gap: 10px; }
-    .pub-item { background: #fff; border: 1px solid var(--slate-200); border-radius: 12px; padding: 14px 18px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
-    .pub-main { flex: 1 1 320px; }
+    .pub-item { background: #fff; border: 1px solid var(--slate-200); border-radius: 12px; padding: 14px 18px; }
     .pub-title { font-size: 14.5px; font-weight: 700; color: var(--navy-900); margin: 3px 0; word-break: keep-all; }
     .pub-meta { font-size: 12.5px; color: var(--slate-500); }
 
-    /* Join Box & Footer */
     .join-box { background: linear-gradient(135deg, var(--navy-950), var(--navy-800)); color: #fff; border-radius: 20px; padding: 38px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
     .join-box h2 { font-size: clamp(20px, 2.8vw, 26px); margin-bottom: 8px; }
     .join-box p { color: #cbd5e1; font-size: 14.5px; max-width: 640px; word-break: keep-all; }
@@ -147,17 +104,15 @@
 
     @media (max-width: 960px) {
       .hero-inner, .advisor-box { grid-template-columns: 1fr; }
-      .metrics-grid, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .metrics-grid, .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 680px) {
       .menu-toggle { display: block; }
-      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy-950); flex-direction: column; padding: 18px; gap: 14px; border-bottom: 1px solid rgba(56,189,248,.2); }
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy-950); flex-direction: column; padding: 18px; gap: 14px; }
       .nav-links.open { display: flex; }
       .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
       .controls { flex-direction: column; align-items: stretch; }
       .search-input { width: 100%; }
-      .join-box { padding: 26px 20px; }
     }
   </style>
 </head>
@@ -183,9 +138,9 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <span class="hero-pill">국립목포대학교 반도체공학과 · Since 2022.03</span>
-      <h1>xRadio Frequency Integrated Circuit<br />(xRFIC) Laboratory</h1>
-      <p>CMOS, SiGe, GaAs 등 다양한 공정 기반의 초고속·고전력·고효율 RF 및 mm-Wave 집적회로 설계와 6G 위성통신·우주 내방사선(TID)·차량용/국방 반도체 시스템을 연구합니다.</p>
+      <span class="hero-pill" id="cfg_hero_badge">국립목포대학교 반도체공학과 · Since 2022.03</span>
+      <h1 id="cfg_hero_title">xRadio Frequency Integrated Circuit (xRFIC) Laboratory</h1>
+      <p id="cfg_hero_desc">CMOS, SiGe, GaAs 등 다양한 공정 기반의 초고속·고전력·고효율 RF 및 mm-Wave 집적회로 설계와 6G 위성통신·우주 내방사선(TID)·차량용/국방 반도체 시스템을 연구합니다.</p>
       <div class="hero-btns">
         <a href="#news" class="btn-primary">최신 연구실 소식</a>
         <a href="#achievements" class="btn-outline">논문 · 특허 성과</a>
@@ -213,7 +168,6 @@
   </div>
 </div>
 
-<!-- 1. LIVE NEWS (Google Sheets) -->
 <section id="news" class="sec-gray">
   <div class="container">
     <div class="sec-header">
@@ -235,160 +189,119 @@
   </div>
 </section>
 
-<!-- 2. ABOUT & RESEARCH & PROJECTS & EQUIPMENT -->
 <section id="about">
   <div class="container">
     <div class="sec-header">
       <div class="sec-tag">01 · About xRFIC Lab</div>
       <h2 class="sec-title">연구실 소개 및 연구 분야</h2>
     </div>
-
     <div class="grid-2" style="margin-bottom:24px;">
       <div class="card">
         <span class="pill" style="margin-bottom:10px;">Korean</span>
-        <h3 style="font-size:17px;margin-bottom:8px;">RF 집적회로 연구실</h3>
-        <p style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">본 연구실은 통신용 반도체를 위한 회로 및 시스템을 집적화하는 연구를 목표로 2022년 3월부터 시작되었습니다. CMOS, SiGe, GaAs 등 다양한 공정을 이용하여 통신용 반도체 회로 및 시스템에 필요한 RF 및 mm-Wave 대역 초고속/고전력/고효율/고선형 집적회로를 설계합니다. 차량용 반도체 통신 모듈, 위성통신·레이다 등 무선 시스템 반도체 연구를 수행하며, 이론 교육과 국가·산업체 협력 프로젝트를 통해 실무형 RF 설계 전문가를 양성합니다.</p>
+        <h3 id="cfg_intro_ko_title" style="font-size:17px;margin-bottom:8px;">RF 집적회로 연구실</h3>
+        <p id="cfg_intro_ko_body" style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">본 연구실은 통신용 반도체를 위한 회로 및 시스템을 집적화하는 연구를 목표로 2022년 3월부터 시작되었습니다. CMOS, SiGe, GaAs 등 다양한 공정을 이용하여 통신용 반도체 회로 및 시스템에 필요한 RF 및 mm-Wave 대역 초고속/고전력/고효율/고선형 집적회로를 설계합니다.</p>
       </div>
       <div class="card">
         <span class="pill pill-dark" style="margin-bottom:10px;">English</span>
-        <h3 style="font-size:17px;margin-bottom:8px;">xRadio Frequency Integrated Circuit Lab</h3>
-        <p style="font-size:13.5px;color:var(--slate-700);">Started in March 2022 at Mokpo National University, xRFIC Lab designs and researches high-speed, high-power, high-efficiency, and high-linearity integrated circuits and systems using CMOS, SiGe, and GaAs processes. Our research covers 5G/6G and mm-Wave RF modules for automotive semiconductors, satellite communications, and radar systems, training specialists with both academic rigor and industry-ready design practice.</p>
+        <h3 id="cfg_intro_en_title" style="font-size:17px;margin-bottom:8px;">xRadio Frequency Integrated Circuit Lab</h3>
+        <p id="cfg_intro_en_body" style="font-size:13.5px;color:var(--slate-700);">Started in March 2022 at Mokpo National University, xRFIC Lab designs and researches high-speed, high-power, high-efficiency, and high-linearity integrated circuits and systems using CMOS, SiGe, and GaAs processes.</p>
       </div>
     </div>
 
     <div class="grid-3" style="margin-bottom:28px;">
       <div class="card">
         <span class="pill" style="margin-bottom:10px;">Research 01</span>
-        <h3 style="font-size:16.5px;margin-bottom:8px;">RF Device & System</h3>
-        <p style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">LNA, Power Amplifier(PA), Mixer, PLL, Switch 등 개별 RF 부품과 송수신기(Transceiver) 집적회로를 설계합니다. 삼성전자·LG전자·SK하이닉스 및 Broadcom·Qualcomm·ADI 등 글로벌 기업이 요구하는 초고주파 핵심 설계 역량을 연구합니다.</p>
+        <h3 id="cfg_research_1_title" style="font-size:16.5px;margin-bottom:8px;">RF Device & System</h3>
+        <p id="cfg_research_1_desc" style="font-size:13.5px;color:var(--slate-700);">LNA, Power Amplifier(PA), Mixer, PLL, Switch 등 개별 RF 부품과 송수신기(Transceiver) 집적회로를 설계합니다.</p>
       </div>
       <div class="card">
         <span class="pill" style="margin-bottom:10px;">Research 02</span>
-        <h3 style="font-size:16.5px;margin-bottom:8px;">RF Module & Package</h3>
-        <p style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">송수신기·필터·증폭기 등을 단일 모듈로 통합하고, PCB 및 와이어본딩·패키징 범프의 EM 분석, 열·차폐 최적화를 수행합니다. 삼성전기·LG이노텍 등 모듈/패키징 선도 분야와 연계됩니다.</p>
+        <h3 id="cfg_research_2_title" style="font-size:16.5px;margin-bottom:8px;">RF Module & Package</h3>
+        <p id="cfg_research_2_desc" style="font-size:13.5px;color:var(--slate-700);">송수신기·필터·증폭기 등을 단일 모듈로 통합하고, PCB 및 와이어본딩·패키징 범프의 EM 분석을 수행합니다.</p>
       </div>
       <div class="card">
         <span class="pill pill-dark" style="margin-bottom:10px;">Lab IP</span>
-        <h3 style="font-size:16.5px;margin-bottom:8px;">50MHz Clock 32-bit SPI IP</h3>
-        <p style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">• 공정: DBHiTek RF SOI Mixed Signal 0.13µm 1P5M (1.2V/2.5V)<br>• 규격: 32-bit Data Interface, 215µm × 80µm<br>• 참고: 한국전자파학회 하계종합학술대회 (2024)</p>
+        <h3 id="cfg_research_3_title" style="font-size:16.5px;margin-bottom:8px;">50MHz Clock 32-bit SPI IP</h3>
+        <p id="cfg_research_3_desc" style="font-size:13.5px;color:var(--slate-700);">공정: DBHiTek RF SOI Mixed Signal 0.13µm 1P5M (1.2V/2.5V) | 규격: 32-bit Data Interface, 215µm × 80µm</p>
       </div>
     </div>
 
-    <!-- Partners & Equipment -->
     <div class="grid-2" style="margin-bottom:44px;">
       <div class="card">
         <h3 style="font-size:16px;margin-bottom:10px;">협력기관 (Partners)</h3>
         <div style="font-size:12.5px;color:var(--slate-500);font-weight:700;">대학</div>
-        <div class="partner-group" style="margin-bottom:10px;">
-          <span class="partner-chip">성균관대학교</span><span class="partner-chip">한양대학교</span><span class="partner-chip">조선대학교</span><span class="partner-chip">한국폴리텍대학</span>
-        </div>
+        <div class="partner-group" id="cfg_partners_uni" style="margin-bottom:10px;"></div>
         <div style="font-size:12.5px;color:var(--slate-500);font-weight:700;">기관 · 기업</div>
-        <div class="partner-group">
-          <span class="partner-chip">국립전파연구소</span><span class="partner-chip">파라피에이</span><span class="partner-chip">휴윈</span><span class="partner-chip">나인플러스IT</span><span class="partner-chip">웨이브트랙</span><span class="partner-chip">가노바</span>
-        </div>
+        <div class="partner-group" id="cfg_partners_org"></div>
       </div>
       <div class="card">
         <h3 style="font-size:16px;margin-bottom:10px;">보유 장비 (Lab Equipment)</h3>
-        <ul class="advisor-list">
-          <li><strong>Dell Precision Tower 5820</strong> 연구용 서버 (최대 12-core Intel Xeon, 128GB RAM)</li>
-          <li><strong>Rohde & Schwarz NGP824</strong> 4-Output Bench Power Supply (0~64V, 0~10A)</li>
-          <li><strong>Bambu Lab (X2S + AMS)</strong> 3D Printer (큐브셋·로켓 기구부 제작)</li>
-          <li><strong>연구용 개인 노트북</strong> 연구원 1인 1대 설계·시뮬레이션 환경 지원</li>
-        </ul>
+        <ul class="advisor-list" id="cfg_equipment_list"></ul>
       </div>
     </div>
 
-    <!-- Projects -->
-    <div class="sec-header" style="margin-bottom:16px;">
-      <h3 class="sec-title" style="font-size:21px;">Lab Projects (2019 ~ 현재)</h3>
-    </div>
+    <div class="sec-header" style="margin-bottom:16px;"><h3 class="sec-title" style="font-size:21px;">Lab Projects (2019 ~ 현재)</h3></div>
     <div class="controls">
       <div class="tabs" id="projTabs">
-        <button class="tab-btn active" data-status="all">전체 (13)</button>
-        <button class="tab-btn" data-status="ongoing">진행중 (4)</button>
-        <button class="tab-btn" data-status="done">완료 (9)</button>
+        <button class="tab-btn active" data-status="all">전체</button>
+        <button class="tab-btn" data-status="ongoing">진행중</button>
+        <button class="tab-btn" data-status="done">완료</button>
       </div>
     </div>
     <div class="grid-2" id="projGrid"></div>
   </div>
 </section>
 
-<!-- 3. DESIGN (TAPE-OUT) -->
 <section id="design" class="sec-gray">
   <div class="container">
     <div class="sec-header">
       <div class="sec-tag">02 · Silicon Proven</div>
       <h2 class="sec-title">Chip Design & Tape-out</h2>
-      <p class="sec-desc">GaAs pHEMT, SiGe, RF-SOI CMOS 공정 기반 연구실 자체 설계 및 Tape-out 이력입니다.</p>
     </div>
     <div class="grid-2" id="designGrid"></div>
   </div>
 </section>
 
-<!-- 4. MEMBERS -->
 <section id="members">
   <div class="container">
-    <div class="sec-header">
-      <div class="sec-tag">03 · People</div>
-      <h2 class="sec-title">Members</h2>
-    </div>
-
+    <div class="sec-header"><div class="sec-tag">03 · People</div><h2 class="sec-title">Members</h2></div>
     <div class="advisor-box">
       <div>
         <span class="pill pill-dark" style="margin-bottom:8px;">Advisor</span>
-        <h3 style="font-size:22px;color:var(--navy-900);margin-bottom:6px;">김민수 교수 (Prof. Min-Su Kim, Steve)</h3>
-        <p style="font-size:13.5px;color:var(--slate-500);margin-bottom:14px;">
-          Office: 자연과학대학 1호관 C2124호<br />
-          Tel: 061-450-2434 · E-mail: msmy970@mnu.ac.kr
-        </p>
-        <a href="https://scholar.google.co.kr/citations?hl=ko&user=fZDYvgEAAAAJ" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;padding:8px 16px;font-size:13px;">Google Scholar 프로필 →</a>
+        <h3 id="cfg_advisor_name" style="font-size:22px;color:var(--navy-900);margin-bottom:6px;">김민수 교수 (Prof. Min-Su Kim, Steve)</h3>
+        <p id="cfg_advisor_info" style="font-size:13.5px;color:var(--slate-500);margin-bottom:14px;">Office: 자연과학대학 1호관 C2124호 | Tel: 061-450-2434 | E-mail: msmy970@mnu.ac.kr</p>
+        <a id="cfg_advisor_scholar" href="https://scholar.google.co.kr/citations?hl=ko&user=fZDYvgEAAAAJ" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;padding:8px 16px;font-size:13px;">Google Scholar 프로필 →</a>
       </div>
       <div>
         <h4 style="font-size:14px;color:var(--cyan-600);margin-bottom:8px;">Education & Experiences</h4>
-        <ul class="advisor-list" style="margin-bottom:14px;">
-          <li><strong>2025.04 ~ Present</strong> Associate Professor, Mokpo National University (Semiconductor Eng.)</li>
-          <li><strong>2022.03 ~ 2025.03</strong> Assistant Professor, Mokpo National University</li>
-          <li><strong>2019.03 ~ 2022.02</strong> Assistant Professor, Daelim University College (Semiconductor)</li>
-          <li><strong>2015.07 ~ 2019.03</strong> Principal Engineer, Broadcom (Wireless Semiconductor Div.)</li>
-          <li><strong>2012.02 ~ 2015.07</strong> Senior Engineer, Samsung LSI (RF Development Team)</li>
-          <li><strong>2008.03 ~ 2012.02</strong> Ph.D. in EECE, Sungkyunkwan University (SKKU)</li>
-        </ul>
+        <ul class="advisor-list" id="cfg_advisor_career" style="margin-bottom:14px;"></ul>
         <h4 style="font-size:14px;color:var(--cyan-600);margin-bottom:6px;">Awards</h4>
-        <ul class="advisor-list">
-          <li><strong>2019</strong> LINC+ Competition, Minister of Education Award (Advisor)</li>
-          <li><strong>2008</strong> IEEE Student Efficiency Competition, Outstanding Achievement Award</li>
-        </ul>
+        <ul class="advisor-list" id="cfg_advisor_awards"></ul>
       </div>
     </div>
-
     <div class="controls">
       <div class="tabs" id="memberTabs">
-        <button class="tab-btn active" data-group="all">전체 (17)</button>
-        <button class="tab-btn" data-group="grad">대학원생 (2)</button>
-        <button class="tab-btn" data-group="4기">4기 (4)</button>
-        <button class="tab-btn" data-group="3기">3기 (3)</button>
-        <button class="tab-btn" data-group="2기">2기 (6)</button>
-        <button class="tab-btn" data-group="1기">1기 (2)</button>
+        <button class="tab-btn active" data-group="all">전체</button>
+        <button class="tab-btn" data-group="grad">대학원생</button>
+        <button class="tab-btn" data-group="4기">4기</button>
+        <button class="tab-btn" data-group="3기">3기</button>
+        <button class="tab-btn" data-group="2기">2기</button>
+        <button class="tab-btn" data-group="1기">1기</button>
       </div>
     </div>
     <div class="grid-4" id="memberGrid"></div>
   </div>
 </section>
 
-<!-- 5. ACHIEVEMENTS -->
 <section id="achievements" class="sec-gray">
   <div class="container">
-    <div class="sec-header">
-      <div class="sec-tag">04 · Research Output</div>
-      <h2 class="sec-title">Achievements</h2>
-      <p class="sec-desc">국제·국내 저널, 학술대회 발표, 특허 및 수상 실적입니다.</p>
-    </div>
+    <div class="sec-header"><div class="sec-tag">04 · Research Output</div><h2 class="sec-title">Achievements</h2></div>
     <div class="controls">
       <div class="tabs" id="pubTabs">
-        <button class="tab-btn active" data-type="journal">Journals (20)</button>
-        <button class="tab-btn" data-type="conference">Conferences (14)</button>
-        <button class="tab-btn" data-type="patent">Patents (5)</button>
-        <button class="tab-btn" data-type="award">Awards (4)</button>
+        <button class="tab-btn active" data-type="journal">Journals</button>
+        <button class="tab-btn" data-type="conference">Conferences</button>
+        <button class="tab-btn" data-type="patent">Patents</button>
+        <button class="tab-btn" data-type="award">Awards</button>
       </div>
       <input type="text" id="pubSearch" class="search-input" placeholder="논문·특허·저자 검색" />
     </div>
@@ -396,47 +309,34 @@
   </div>
 </section>
 
-<!-- 6. xSPACE -->
 <section id="xspace">
   <div class="container">
-    <div class="sec-header">
-      <div class="sec-tag">05 · Aerospace & CubeSat Club</div>
-      <h2 class="sec-title">xSPACE 프로젝트</h2>
-      <p class="sec-desc">학부연구생 중심으로 성층권 고고도 풍선 큐브셋 릴레이 통신, 3D 프린팅 로켓 발사, 정지형 원격 관측 시스템을 직접 제작·검증합니다.</p>
-    </div>
+    <div class="sec-header"><div class="sec-tag">05 · Aerospace & CubeSat Club</div><h2 class="sec-title">xSPACE 프로젝트</h2></div>
     <div class="grid-2" id="xspaceGrid"></div>
   </div>
 </section>
 
-<!-- 7. GALLERY -->
 <section id="gallery" class="sec-gray">
   <div class="container">
-    <div class="sec-header">
-      <div class="sec-tag">06 · Lab Life</div>
-      <h2 class="sec-title">Gallery & History</h2>
-      <p class="sec-desc">2022년부터 이어온 학회·MT, 반도체 설계 교육, 졸업 및 연구실 일상의 기록입니다.</p>
-    </div>
+    <div class="sec-header"><div class="sec-tag">06 · Lab Life</div><h2 class="sec-title">Gallery & History</h2></div>
     <div class="controls">
       <div class="tabs" id="galTabs">
-        <button class="tab-btn active" data-cat="all">전체 (19)</button>
-        <button class="tab-btn" data-cat="conf">학회 · MT (5)</button>
-        <button class="tab-btn" data-cat="edu">비교과 · 교육 (5)</button>
-        <button class="tab-btn" data-cat="life">졸업 · 회식 · 일상 (9)</button>
+        <button class="tab-btn active" data-cat="all">전체</button>
+        <button class="tab-btn" data-cat="conf">학회 · MT</button>
+        <button class="tab-btn" data-cat="edu">비교과 · 교육</button>
+        <button class="tab-btn" data-cat="life">졸업 · 회식 · 일상</button>
       </div>
     </div>
     <div class="grid-3" id="galGrid"></div>
   </div>
 </section>
 
-<!-- 8. JOIN US -->
 <section id="join">
   <div class="container">
     <div class="join-box">
       <div>
-        <h2>대학원 진학 및 학부연구생 상시 모집</h2>
-        <p><strong>대상:</strong> 재학 2~4학년 또는 졸업생 (타 대학 및 동등 자격 포함)<br />
-           <strong>혜택:</strong> 등록금 및 인건비 지원, 쾌적한 연구환경, 화합물반도체 RF 부품 및 국가·산학 프로젝트 실무 참여<br />
-           <strong>위치:</strong> 자연과학대학 1호관 2123호 xRFIC 연구실 (지원서 작성 후 이메일 제출)</p>
+        <h2 id="cfg_recruit_title">대학원 진학 및 학부연구생 상시 모집</h2>
+        <p id="cfg_recruit_desc">자연과학대학 1호관 2123호 xRFIC 연구실 · msmy970@mnu.ac.kr</p>
       </div>
       <button class="copy-btn" id="copyEmailBtn">📧 msmy970@mnu.ac.kr 복사</button>
     </div>
@@ -445,233 +345,137 @@
 
 <footer>
   <div class="footer-inner">
-    <div><strong>국립목포대학교 xRFIC 연구실</strong> (지도교수: 김민수)</div>
-    <div>전라남도 무안군 청계면 영산로 1666, 자연과학대학 1호관 2123호 · Tel. 061-450-2434</div>
+    <div id="cfg_footer_left"><strong>국립목포대학교 xRFIC 연구실</strong> (지도교수: 김민수)</div>
+    <div id="cfg_footer_right">전라남도 무안군 청계면 영산로 1666, 자연과학대학 1호관 2123호 · Tel. 061-450-2434</div>
   </div>
 </footer>
 
 <script>
-const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvyvndwtprO5C7EzzvXyKABasIwyfUqp9BX6nbYFnHqjp5FP8SvSvQnVmJVzX0WyI7hSQweBywT7TM/pub?gid=2106461104&single=true&output=csv";
-
-/* --- DATA --- */
-const PROJECTS = [
-  { s:"ongoing", p:"2025.09 ~ 2029.08", org:"중소벤처기업부", host:"주관: RFPT / 공동: (주)웨이브트랙", t:"위성 D2D 통신용 Q 대역 고출력 위성 탑재 송신 모듈 및 V 대역 지상 백홀용 상향 RF Front-end 모듈 개발" },
-  { s:"ongoing", p:"2024.08 ~ 2028.07", org:"중소벤처기업부", host:"주관: (주)웨이브트랙 / 공동: KETI", t:"위성통신용 Array System을 위한 고집적, 고효율 Ku-band SiP 개발" },
-  { s:"ongoing", p:"2025.09 ~ 2027.12", org:"교육부 (글로컬랩)", host:"주관: 전남대학교", t:"지능형 국방 무인체계 핵심기술 개발 및 국방시스템 국산화 연구" },
-  { s:"ongoing", p:"2025.09 ~ 2029.12", org:"전라남도 RISE", host:"주관: 초당대학교", t:"지역 RISE 미래혁신챌린지(우주항공드론) 우주부품 연구개발" },
-  { s:"done", p:"2025.09 ~ 2026.02", org:"교육부 (글로컬R&D)", host:"주관: 전남대학교", t:"6G 저궤도 위성 탑재체 및 지상단말을 위한 빔포밍 송수신 모듈 개발" },
-  { s:"done", p:"2025.07 ~ 2025.12", org:"전라남도 RISE", host:"공동: (주)웨이브트랙", t:"위성통신용 Ku대역 저잡음증폭기 개발" },
-  { s:"done", p:"2025.07 ~ 2025.08", org:"국립목포대 PBL지원센터", host:"학부생 프로젝트 기반 교육", t:"정지형 CubeSat을 이용한 환경 원격 관측 시스템" },
-  { s:"done", p:"2022.07 ~ 2023.06", org:"(주)미연구소", host:"지속연구 3년", t:"LEO 위성용 LNA 및 디지털 컨트롤 회로 개발" },
-  { s:"done", p:"2023.10 ~ 2023.12", org:"화합물반도체센터(CSRC)", host:"우수성과 조기종료", t:"고품질 차량용 레이더 시스템을 위한 mmWave RF Front-End Module IC 연구" },
-  { s:"done", p:"2022.05 ~ 2024.02", org:"산업통상자원부", host:"지속연구 2년", t:"5G C-V2X용 시스템 온칩 RF 프론트엔드 모듈 개발" },
-  { s:"done", p:"2023.05 ~ 2023.09", org:"전남테크노파크(전남TP)", host:"단기기획연구", t:"전남 화합물반도체 산업 육성을 위한 기업지원센터 운영방안" },
-  { s:"done", p:"2020.08 ~ 2022.07", org:"(주)해동문화재단 (대덕전자)", host:"연구과제", t:"5G 이후 이동통신용 저잡음증폭기 MMIC 설계" },
-  { s:"done", p:"2019.10 ~ 2020.09", org:"중소기업청", host:"연구과제", t:"28GHz 5G 이동통신 RF시스템 생산용 저가형 Spectrum Analyzer 개발" }
-];
-
-const DESIGNS = [
-  { d:"2025.07", proc:"Win-semi GaAs pHEMT 0.1µm", t:"GaAs 1W급 전력증폭기(PA) & Drive 증폭기", specs:["저궤도 위성용 (16~18.5 GHz)","Gain > 27.8 dB, Power = 30.33 dBm @ Pin=5dBm","S11/S22 < -10 dB, QFN 패키지 모델 적용","Chip size: 2.65 × 1.0 mm²"] },
-  { d:"2025.04", proc:"Win-semi GaAs pHEMT 0.1µm", t:"GaAs 저잡음증폭기(LNA) Tape-out", specs:["저궤도 위성용 (7~14 GHz)","Gain > 28 dB, NF < 1.8 dB, S11/S22 < -10 dB","Total Current: 130 mA @ 3.5 V","Chip size: 1.74 × 0.7 mm²"] },
-  { d:"2022.10", proc:"SiGe 130nm Process", t:"LEO 위성용 LNA & 20MHz SPI 인터페이스", specs:["저궤도 위성용 간섭 제거 회로 내장 LNA","SPI Digital Interface (Max clock 20 MHz)","Chip size: 820 µm × 840 µm","참여: 허경천, 홍대훈, 장우혁, 정인희"] },
-  { d:"2022.05", proc:"RF-SOI CMOS", t:"5G NR (N77/N79) 광대역 LNA (연구실 첫 Tape-out)", specs:["모바일용 5G NR N77/N79 광대역 저잡음증폭기","입/출력 매칭회로 집적화 & ESD 보호회로 내장","Chip size: 700 µm × 1500 µm"] }
-];
-
-const MEMBERS = [
-  { g:"grad", n:"이성호", y:"박사과정", f:"반도체 측정", r:"재학중", type:"study" },
-  { g:"grad", n:"김일준", y:"2025.02 공학석사", f:"반도체 설계", r:"취업 · (주)라닉스", type:"job" },
-  { g:"4기", n:"김강현", y:"2026.02 학사", f:"반도체 Layout", r:"진학 · 성균관대학교", type:"study" },
-  { g:"4기", n:"김윤형", y:"2026.02 학사", f:"반도체 Layout", r:"진학 · 광운대학교", type:"study" },
-  { g:"4기", n:"김민규", y:"2026.02 학사", f:"반도체 Layout", r:"취업 · (주)큐웨이브랩", type:"job" },
-  { g:"4기", n:"서윤서", y:"2026.02 학사", f:"반도체 Layout", r:"취업 · (주)파츠", type:"job" },
-  { g:"3기", n:"박수홍", y:"2025.02 학사", f:"전자공학", r:"진학 · 서강대학교", type:"study" },
-  { g:"3기", n:"박근원", y:"2025.02 학사", f:"Digital 회로 설계", r:"진학 · 한국폴리텍대학", type:"study" },
-  { g:"3기", n:"이형민", y:"2025.02 학사", f:"방산체계구축", r:"취업 · 뉴빛테크놀러지", type:"job" },
-  { g:"2기", n:"김정규", y:"2027 학사", f:"반도체 모듈설계", r:"취업 · 웨이브트랙", type:"job" },
-  { g:"2기", n:"문규현", y:"2024.02 학사", f:"반도체 설계", r:"진학 · 성균관대학교", type:"study" },
-  { g:"2기", n:"정인희", y:"2024.02 학사", f:"반도체 Layout", r:"취업 · 코아솔", type:"job" },
-  { g:"2기", n:"장우혁", y:"2024.02 학사", f:"반도체 Layout", r:"취업 · 매그나칩", type:"job" },
-  { g:"2기", n:"강경주", y:"2024.02 학사", f:"반도체 Layout", r:"취업 · 실리콘 마이터스", type:"job" },
-  { g:"2기", n:"장태양", y:"2024.02 학사", f:"반도체 Layout", r:"취업 · 파츠", type:"job" },
-  { g:"1기", n:"허경천", y:"2023.02 학사", f:"반도체 Layout", r:"취업 · 매그나칩", type:"job" },
-  { g:"1기", n:"홍대훈", y:"2023.02 학사", f:"반도체 설계 (PLL)", r:"취업 · Leo LSI (서초)", type:"job" }
-];
-
-const PUBS = {
-  journal: [
-    { y:"2026", a:"KangHyeon Kim", t:"GaAs 공정 기반 RF 수동소자 및 pHEMT의 TID 방사선 영향 분석", v:"JKIEES" },
-    { y:"2026", a:"Min-Su Kim", t:"Layout-Based Low-Noise Amplifier with Improved Input Matching and Noise Performance", v:"IEEE ACCESS" },
-    { y:"2026", a:"Min-Su Kim", t:"Investigation of TID-Induced Capacitance Variation in GaAs Edge-Lift Capacitors and Its Effect on RF Impedance Matching", v:"Scientific Reports (Nature Portfolio)" },
-    { y:"2026", a:"Min-Su Kim", t:"APD", v:"IEEE JSSC", tag:"심사중" },
-    { y:"2026", a:"Min-Su Kim", t:"DIVIDER", v:"IEEE MWTL", tag:"심사중" },
-    { y:"2025", a:"Il Jun Kim", t:"A CMOS Linear Low-Noise Amplifier using Transformer Based Second Harmonic Trap", v:"IEEE MWTL" },
-    { y:"2024", a:"Min-Su Kim", t:"Low-Noise Amplifier with Bypass For 5G NR frequency n77 band and n79 band in RF-SOI CMOS technology", v:"Sensors" },
-    { y:"2024", a:"Sunwoo Lee", t:"A Concurrent 26/48 GHz LNA with an Optimal Dual-band Noise Matching Method Using GaAs 0.15 µm pHEMT", v:"IEEE TCAS II" },
-    { y:"2024", a:"Min-Su Kim", t:"Single-Input Multiple-Output (SIMO) Cascode Low-Noise Amplifier with Switchable Degeneration Inductor for Carrier Aggregation", v:"Sensors" },
-    { y:"2024", a:"Min-Su Kim", t:"Implementation and Measurement of Low-Noise Amplifier Using RF Short-Circuit Capacitor", v:"JKIEES" },
-    { y:"2023", a:"Byunghun Ko", t:"A 39/48 GHz Switchless Reconfigurable Low Noise Amplifier Using Common Gate and Coupled-Line-Based Diplexer", v:"IEEE TCAS II" },
-    { y:"2023", a:"Min-Su Kim", t:"RFSOI Low-Noise Amplifier Using RC Feedback and Series Inductive-Peaking Techniques For 5G New Radio application", v:"Sensors" },
-    { y:"2023", a:"Taejoo Sim", t:"High-Q Transformer Neutralization Technique for W-Band Dual-Band LNA Using 0.1µm GaAs pHEMT Technology", v:"JEES" },
-    { y:"2022", a:"Sunwoo Lee", t:"A W-band Amplifier with a New Wide-Band Interstage Matching Technique Using Self-Resonance of a Microstrip-Coupled Line", v:"IEEE ACCESS" },
-    { y:"2021", a:"Min-Su Kim", t:"An ESD and Interference-Robust Protection Circuit for Cascode Low-Noise Amplifier in CMOS-SOI Technology", v:"IEEE ACCESS" },
-    { y:"2021", a:"Min-Su Kim", t:"The Demonstration of S2P Converter with Address Allocation Method Using 28nm CMOS Technology", v:"MDPI Applied Sciences" },
-    { y:"2021", a:"Min-Su Kim", t:"A Broadband Gain Amplifier Designed with the Models for Package and Diode Using 0.5 µm GaAs E-pHEMT Process", v:"MDPI Electronics" },
-    { y:"2021", a:"Heesauk Jhon", t:"Cost-Effective 4 GHz VCO Using Only Miniature Spirals Realized in a 0.18 µm CMOS Process for WSN Applications", v:"MDPI Electronics" },
-    { y:"2021", a:"Min-Su Kim", t:"Optimum Layout of Low Power LC Based Digitally Controlled Oscillator for Bluetooth Low Energy in a 4G/5G LTE System", v:"MDPI Applied Sciences" },
-    { y:"2021", a:"김민수", t:"CMOS 28nm 직렬-병렬 변환기 설계", v:"한국전자파학회 Vol.32, No.4 특집호 (KCI)" }
-  ],
-  conference: [
-    { y:"2025", a:"김윤형", t:"EM 기반 소형 윌킨슨 전력 분배기 설계", v:"한국전기전자학회 하계학술대회 (2025.08.13)" },
-    { y:"2025", a:"김강현", t:"2차 고조파 제거 및 광대역 매칭을 갖춘 GaN HEMT 전력 증폭기 설계", v:"한국전기전자학회 하계학술대회 (2025.08.13)", tag:"장려상" },
-    { y:"2025", a:"김민규", t:"2차 고조파 제거 바이어스 라인을 통합한 10W GaN HEMT 전력 증폭기 설계", v:"한국전기전자학회 하계학술대회 (2025.08.13)" },
-    { y:"2025", a:"서윤서", t:"입력 지연 시간과 Multi-Tap 지연을 이용한 Duty 제어 PWM 생성 회로", v:"한국전기전자학회 하계학술대회 (2025.08.13)" },
-    { y:"2024", a:"김일준", t:"독립적인 RF 프론트-엔드 모듈을 위한 고집적 저잡음 증폭기 설계", v:"한국전자파학회 동계학술대회 (2024.01.15)" },
-    { y:"2024", a:"김일준", t:"C-V2X용 Full EM 기반 6GHz RFSOI 저잡음 증폭기 설계", v:"한국전자파학회 하계학술대회 (2024.08.22~23)" },
-    { y:"2024", a:"박수홍", t:"6G 대역을 위한 헤어핀 구조 대역통과 필터 설계", v:"한국전자파학회 하계학술대회 (2024.08.22~23)" },
-    { y:"2024", a:"박근원", t:"High-speed용 50 MHz 클럭 32 bit SPI(Serial Peripheral Interface) slave 설계", v:"한국전자파학회 하계학술대회 (2024.08.22~23)" },
-    { y:"2024", a:"이형민", t:"모듈레벨 고주파 PSRR 향상을 위한 LDO 설계", v:"한국전자파학회 하계학술대회 (2024.08.22~23)", tag:"우수상" },
-    { y:"2024", a:"김성혁", t:"A 5.9/26.5GHz Dual-Band Concurrent Low Noise Amplifier for 5G NR C-V2X", v:"2024 APMC" },
-    { y:"2023", a:"김민수", t:"ESD 보호회로와 바이패스를 포함하는 5G NR n77용 RF-SOI 저잡음 증폭기 설계", v:"한국전자파학회 동계학술대회 (2023.01.16)" },
-    { y:"2023", a:"김정규", t:"안정화 회로를 포함한 2.14GHz GaN 저잡음 증폭기 설계", v:"한국전자파학회 하계학술대회 학부생논문경진대회 (2023.08.25)" },
-    { y:"2023", a:"문규현", t:"GaN 트랜지스터를 이용한 2.16 GHz 전력증폭기 설계", v:"한국전자파학회 하계학술대회 학부생논문경진대회 (2023.08.25)" },
-    { y:"2022", a:"김민수", t:"5G NR용 Sub-6GHz n79대역 멀티이득 캐스코드 저잡음 증폭기 설계", v:"한국전자파학회 하계학술대회 (2022.08.17)" }
-  ],
-  patent: [
-    { y:"2026", a:"Min-Su Kim", t:"가변 저항을 이용한 dc 결합 광대역 전력 분배기 및 그 제어 방법", v:"출원번호 10-2026-0231405" },
-    { y:"2025", a:"Min-Su Kim", t:"감쇄기를 이용한 회로 바이패스 시스템 및 방법", v:"출원번호 10-2025-0115015" },
-    { y:"2025", a:"Min-Su Kim", t:"군집 위성 내 위성들 간 보조 전력을 위한 무선전력 전송 시스템 및 방법", v:"출원번호 10-2025-0152764" },
-    { y:"2025", a:"Min-Su Kim", t:"해상 풍력 단지 내 송전 시스템을 위한 무선 전력 공급 시스템", v:"출원번호 10-2025-0152782" },
-    { y:"2021", a:"Min-Su Kim", t:"Amplifier with second-harmonic trap", v:"US Patent 등록번호 US10536119B2 (등록일 2020.01.14)", tag:"미국등록" }
-  ],
-  award: [
-    { y:"2025", a:"지도교수: 김민수 (학생: 김강현)", t:"학부생 경진대회 장려상", v:"한국전기전자학회 하계학술대회" },
-    { y:"2024", a:"지도교수: 김민수 (학생: 이형민)", t:"학부생 경진대회 우수 논문상", v:"한국전자파학회 하계학술대회" },
-    { y:"2019", a:"지도교수: 김민수", t:"사회맞춤형 LINC+ 경진대회 교육부장관상", v:"교육부" },
-    { y:"2008", a:"Min-Su Kim", t:"IEEE Student Efficiency Competition, Outstanding Achievement Award", v:"IEEE" }
-  ]
+/* 여기에 xRFIC_DB 각 탭의 '웹에 게시(.csv)' 링크를 넣으면 시트 수정이 즉시 반영됩니다 */
+const SHEET_URLS = {
+  news: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvyvndwtprO5C7EzzvXyKABasIwyfUqp9BX6nbYFnHqjp5FP8SvSvQnVmJVzX0WyI7hSQweBywT7TM/pub?gid=2106461104&single=true&output=csv",
+  config: "",
+  projects: "",
+  designs: "",
+  members: "",
+  publications: "",
+  xspace: "",
+  gallery: ""
 };
 
-const XSPACE = [
-  { y:"2026 하계", b:"xRFIC × BADA Lab", t:"성층권 고고도 풍선 CubeSat 릴레이 통신 성공", d:"라즈베리파이 기반 CubeSat 1·2호기 및 433MHz LoRa 지상국을 구축해 성층권 사진 촬영 및 회수 임무를 성공적으로 마쳤습니다. (2026.06.22 Kick-off 및 전국 로켓발사 경진대회 참관)" },
-  { y:"2026.06.05", b:"Rocket Test", t:"xSPACE 1호기 로켓 발사 및 낙하산 분출 시험", d:"3D 프린터로 자체 제작한 로켓 바디(T1~T4호기)의 1차 발사 테스트와 연소·낙하산 분출 시험을 진행했습니다." },
-  { y:"2025.07 ~ 08", b:"PBL 프로젝트", t:"정지형 CubeSat 환경 원격 관측 시스템 구축 성공", d:"구성원: 김민규(리더), 김강현, 김윤형, 강지원, 서윤서. 온습도·기압 센서, 저전력 LoRa 통신, 태양광 전원, 직접 3D 모델링한 큐브셋을 산 정상에 설치해 수 km 떨어진 지상국에서 실시간 데이터를 수신·분석했습니다." }
+let CONFIG = {
+  partners_uni: "성균관대학교, 한양대학교, 조선대학교, 한국폴리텍대학",
+  partners_org: "국립전파연구소, 파라피에이, 휴윈, 나인플러스IT, 웨이브트랙, 가노바",
+  equipment_list: "Dell Precision Tower 5820 (연구용 서버, 최대 12-core Intel Xeon, 128GB RAM) | Rohde & Schwarz NGP824 (4-Output Bench Power Supply, 0~64V, 0~10A) | Bambu Lab (X2S + AMS, 3D Printer) | 연구용 개인 노트북",
+  advisor_career: "2025.04 ~ Present Associate Professor, Mokpo National University (Semiconductor Eng.) | 2022.03 ~ 2025.03 Assistant Professor, Mokpo National University | 2019.03 ~ 2022.02 Assistant Professor, Daelim University College (Semiconductor) | 2015.07 ~ 2019.03 Principal Engineer, Broadcom (Wireless Semiconductor Div.) | 2012.02 ~ 2015.07 Senior Engineer, Samsung LSI (RF Development Team) | 2008.03 ~ 2012.02 Ph.D. in EECE, Sungkyunkwan University (SKKU)",
+  advisor_awards: "2019 LINC+ Competition, Minister of Education Award (Advisor) | 2008 IEEE Student Efficiency Competition, Outstanding Achievement Award"
+};
+
+let PROJECTS = [
+  { status:"ongoing", period:"2025.09 ~ 2029.08", agency:"중소벤처기업부", host:"주관: RFPT / 공동: (주)웨이브트랙", title:"위성 D2D 통신용 Q 대역 고출력 위성 탑재 송신 모듈 및 V 대역 지상 백홀용 상향 RF Front-end 모듈 개발" },
+  { status:"ongoing", period:"2024.08 ~ 2028.07", agency:"중소벤처기업부", host:"주관: (주)웨이브트랙 / 공동: KETI", title:"위성통신용 Array System을 위한 고집적, 고효율 Ku-band SiP 개발" },
+  { status:"ongoing", period:"2025.09 ~ 2027.12", agency:"교육부 (글로컬랩)", host:"주관: 전남대학교", title:"지능형 국방 무인체계 핵심기술 개발 및 국방시스템 국산화 연구" },
+  { status:"ongoing", period:"2025.09 ~ 2029.12", agency:"전라남도 RISE", host:"주관: 초당대학교", title:"지역 RISE 미래혁신챌린지(우주항공드론) 우주부품 연구개발" },
+  { status:"done", period:"2025.09 ~ 2026.02", agency:"교육부 (글로컬R&D)", host:"주관: 전남대학교", title:"6G 저궤도 위성 탑재체 및 지상단말을 위한 빔포밍 송수신 모듈 개발" },
+  { status:"done", period:"2025.07 ~ 2025.12", agency:"전라남도 RISE", host:"공동: (주)웨이브트랙", title:"위성통신용 Ku대역 저잡음증폭기 개발" },
+  { status:"done", period:"2025.07 ~ 2025.08", agency:"국립목포대 PBL지원센터", host:"학부생 프로젝트 기반 교육", title:"정지형 CubeSat을 이용한 환경 원격 관측 시스템" },
+  { status:"done", period:"2022.07 ~ 2023.06", agency:"(주)미연구소", host:"지속연구 3년", title:"LEO 위성용 LNA 및 디지털 컨트롤 회로 개발" },
+  { status:"done", period:"2023.10 ~ 2023.12", agency:"화합물반도체센터(CSRC)", host:"우수성과 조기종료", title:"고품질 차량용 레이더 시스템을 위한 mmWave RF Front-End Module IC 연구" },
+  { status:"done", period:"2022.05 ~ 2024.02", agency:"산업통상자원부", host:"지속연구 2년", title:"5G C-V2X용 시스템 온칩 RF 프론트엔드 모듈 개발" },
+  { status:"done", period:"2023.05 ~ 2023.09", agency:"전남테크노파크(전남TP)", host:"단기기획연구", title:"전남 화합물반도체 산업 육성을 위한 기업지원센터 운영방안" },
+  { status:"done", period:"2020.08 ~ 2022.07", agency:"(주)해동문화재단 (대덕전자)", host:"연구과제", title:"5G 이후 이동통신용 저잡음증폭기 MMIC 설계" },
+  { status:"done", period:"2019.10 ~ 2020.09", agency:"중소기업청", host:"연구과제", title:"28GHz 5G 이동통신 RF시스템 생산용 저가형 Spectrum Analyzer 개발" }
 ];
 
-const GALLERY = [
-  { c:"life", y:"2026.02", t:"졸업을 축하합니다", d:"김강현, 김민규, 강지원, 서윤서, 김윤형 학생의 졸업을 축하합니다. ^^ (민규야.. 특히 축하해)" },
-  { c:"life", y:"2025.12", t:"2025년 연구실 마무리 회식", d:"김강현, 김민규, 김윤형, 서윤서 학부연구생 및 이성호 박사과정과 함께 한 해를 마무리했습니다. xRFIC 파이팅!" },
-  { c:"conf", y:"2025.08", t:"2025년 한국전기전자학회 & MT", d:"학술대회 포스터 발표(김강현 장려상 수상)와 연구실 MT를 함께 진행했습니다." },
-  { c:"life", y:"2025.05", t:"스승의 날", d:"항상 감사할 줄 알고 열심히 하는 학생들 덕분에 큰 힘을 얻습니다. 고맙습니다. ^^" },
-  { c:"conf", y:"2024.08", t:"2024년 하계 한국전자파학회, MT & OB 초청", d:"하계 학술대회 발표(이형민 우수상 수상)와 더불어 졸업생(OB)들과 뜻깊은 시간을 보냈습니다." },
-  { c:"edu", y:"2024.07", t:"반도체 디지털 회로 설계 교육", d:"한국폴리텍 성남캠퍼스 서종현 교수님 초청, 공학교육혁신센터 지원 비교과 교육 (2024.07.22~23)" },
-  { c:"life", y:"2024", t:"2024년 연구실 회식", d:"이성호(네오파워텍 이사) 박사과정 입학 환영 및 연구실 학생들과 함께한 회식" },
-  { c:"life", y:"2024.02", t:"2024년 졸업식", d:"졸업식 후 인희, 정규, 우혁, 규현 학생이 연구실을 방문해 자리를 빛내주었습니다." },
-  { c:"conf", y:"2024.02", t:"2024년 동계 한국전자파학회 & 제주 MT", d:"제주도 ICC 학회 참석 및 연구실 MT 진행 (2024.02.14~16)" },
-  { c:"life", y:"2023.12", t:"2023년 연말 연구실 회식", d:"학부연구생 및 졸업생들과 함께한 2023년 마무리 회식 (2023.12.29)" },
-  { c:"conf", y:"2023.08", t:"2023 하계 연구실 첫 MT (강원도 고성)", d:"방학 동안 열심히 공부한 학생들과 강원도 고성으로 첫 연구실 MT를 다녀왔습니다." },
-  { c:"conf", y:"2023.08", t:"2023 하계 한국전자파학회 학부생 논문경진대회", d:"강원도 고성 델피노, 문규현·김정규 학생 학부생 논문경진대회 참가 (2023.08.23~25)" },
-  { c:"edu", y:"2023.08", t:"반도체 아날로그 회로 설계 교육", d:"한국폴리텍대학 성남캠퍼스 그린반도체학과 아날로그 회로 설계 및 레이아웃 교육 (2023.08.19)" },
-  { c:"edu", y:"2023.07", t:"반도체 디지털 회로 설계 교육", d:"한국폴리텍 성남캠퍼스 서종현 교수님 초청 디지털 회로 설계 교육 (2023.07.24)" },
-  { c:"life", y:"2023.02", t:"제3회 xRFIC 회식 (2기 환영식)", d:"2023년 개강 및 연구실 2기 환영식, 화덕 삼겹살 (2023.02.27)" },
-  { c:"edu", y:"2022.12", t:"디지털 회로 설계를 위한 교육", d:"한국폴리텍 성남캠퍼스 서종현 교수님 초청 디지털 회로 설계 교육 (2022.12.16)" },
-  { c:"edu", y:"2022.12", t:"반도체 설계 이론 및 실습 교육", d:"(주)세미파이브 남철 전무님 초청, 반도체 트렌드 및 RFIC/디지털 설계 실습 (2022.12.13)" },
-  { c:"life", y:"2022.11", t:"제2회 xRFIC 회식 (Tape-out 기념)", d:"Tape-out 완료 기념 회식, 목포 바다조개전골 (2022.11.08)" },
-  { c:"life", y:"2022.09", t:"제1회 xRFIC 당구대회 & 첫 회식", d:"1등 김민수, 2등 허경천, 3등 홍대훈 (2022.09.27)" }
+let DESIGNS = [
+  { date:"2025.07", process:"Win-semi GaAs pHEMT 0.1µm", title:"GaAs 1W급 전력증폭기(PA) & Drive 증폭기", specs:"저궤도 위성용 (16~18.5 GHz) | Gain > 27.8 dB, Power = 30.33 dBm @ Pin=5dBm | S11/S22 < -10 dB, QFN 패키지 모델 적용 | Chip size: 2.65 × 1.0 mm²", image_url:"" },
+  { date:"2025.04", process:"Win-semi GaAs pHEMT 0.1µm", title:"GaAs 저잡음증폭기(LNA) Tape-out", specs:"저궤도 위성용 (7~14 GHz) | Gain > 28 dB, NF < 1.8 dB, S11/S22 < -10 dB | Total Current: 130 mA @ 3.5 V | Chip size: 1.74 × 0.7 mm²", image_url:"" },
+  { date:"2022.10", process:"SiGe 130nm Process", title:"LEO 위성용 LNA & 20MHz SPI 인터페이스", specs:"저궤도 위성용 간섭 제거 회로 내장 LNA | SPI Digital Interface (Max clock 20 MHz) | Chip size: 820 µm × 840 µm | 참여: 허경천, 홍대훈, 장우혁, 정인희", image_url:"" },
+  { date:"2022.05", process:"RF-SOI CMOS", title:"5G NR (N77/N79) 광대역 LNA (연구실 첫 Tape-out)", specs:"모바일용 5G NR N77/N79 광대역 저잡음증폭기 | 입/출력 매칭회로 집적화 & ESD 보호회로 내장 | Chip size: 700 µm × 1500 µm", image_url:"" }
 ];
 
-/* --- RENDERERS --- */
+let MEMBERS = [
+  { cohort:"grad", name:"이성호", degree:"박사과정", field:"반도체 측정", status:"재학중", type:"study", photo_url:"" },
+  { cohort:"grad", name:"김일준", degree:"2025.02 공학석사", field:"반도체 설계", status:"취업 · (주)라닉스", type:"job", photo_url:"" },
+  { cohort:"4기", name:"김강현", degree:"2026.02 학사", field:"반도체 Layout", status:"진학 · 성균관대학교", type:"study", photo_url:"" },
+  { cohort:"4기", name:"김윤형", degree:"2026.02 학사", field:"반도체 Layout", status:"진학 · 광운대학교", type:"study", photo_url:"" },
+  { cohort:"4기", name:"김민규", degree:"2026.02 학사", field:"반도체 Layout", status:"취업 · (주)큐웨이브랩", type:"job", photo_url:"" },
+  { cohort:"4기", name:"서윤서", degree:"2026.02 학사", field:"반도체 Layout", status:"취업 · (주)파츠", type:"job", photo_url:"" },
+  { cohort:"3기", name:"박수홍", degree:"2025.02 학사", field:"전자공학", status:"진학 · 서강대학교", type:"study", photo_url:"" },
+  { cohort:"3기", name:"박근원", degree:"2025.02 학사", field:"Digital 회로 설계", status:"진학 · 한국폴리텍대학", type:"study", photo_url:"" },
+  { cohort:"3기", name:"이형민", degree:"2025.02 학사", field:"방산체계구축", status:"취업 · 뉴빛테크놀러지", type:"job", photo_url:"" },
+  { cohort:"2기", name:"김정규", degree:"2027 학사", field:"반도체 모듈설계", status:"취업 · 웨이브트랙", type:"job", photo_url:"" },
+  { cohort:"2기", name:"문규현", degree:"2024.02 학사", field:"반도체 설계", status:"진학 · 성균관대학교", type:"study", photo_url:"" },
+  { cohort:"2기", name:"정인희", degree:"2024.02 학사", field:"반도체 Layout", status:"취업 · 코아솔", type:"job", photo_url:"" },
+  { cohort:"2기", name:"장우혁", degree:"2024.02 학사", field:"반도체 Layout", status:"취업 · 매그나칩", type:"job", photo_url:"" },
+  { cohort:"2기", name:"강경주", degree:"2024.02 학사", field:"반도체 Layout", status:"취업 · 실리콘 마이터스", type:"job", photo_url:"" },
+  { cohort:"2기", name:"장태양", degree:"2024.02 학사", field:"반도체 Layout", status:"취업 · 파츠", type:"job", photo_url:"" },
+  { cohort:"1기", name:"허경천", degree:"2023.02 학사", field:"반도체 Layout", status:"취업 · 매그나칩", type:"job", photo_url:"" },
+  { cohort:"1기", name:"홍대훈", degree:"2023.02 학사", field:"반도체 설계 (PLL)", status:"취업 · Leo LSI (서초)", type:"job", photo_url:"" }
+];
+
+let PUBS = [
+  { pub_type:"journal", year:"2026", authors:"KangHyeon Kim", title:"GaAs 공정 기반 RF 수동소자 및 pHEMT의 TID 방사선 영향 분석", venue:"JKIEES", tag:"" },
+  { pub_type:"journal", year:"2026", authors:"Min-Su Kim", title:"Layout-Based Low-Noise Amplifier with Improved Input Matching and Noise Performance", venue:"IEEE ACCESS", tag:"" },
+  { pub_type:"journal", year:"2026", authors:"Min-Su Kim", title:"Investigation of TID-Induced Capacitance Variation in GaAs Edge-Lift Capacitors and Its Effect on RF Impedance Matching", venue:"Scientific Reports (Nature Portfolio)", tag:"" },
+  { pub_type:"journal", year:"2026", authors:"Min-Su Kim", title:"APD", venue:"IEEE JSSC", tag:"심사중" },
+  { pub_type:"journal", year:"2026", authors:"Min-Su Kim", title:"DIVIDER", venue:"IEEE MWTL", tag:"심사중" },
+  { pub_type:"journal", year:"2025", authors:"Il Jun Kim", title:"A CMOS Linear Low-Noise Amplifier using Transformer Based Second Harmonic Trap", venue:"IEEE MWTL", tag:"" },
+  { pub_type:"journal", year:"2024", authors:"Min-Su Kim", title:"Low-Noise Amplifier with Bypass For 5G NR frequency n77 band and n79 band in RF-SOI CMOS technology", venue:"Sensors", tag:"" },
+  { pub_type:"journal", year:"2024", authors:"Sunwoo Lee", title:"A Concurrent 26/48 GHz LNA with an Optimal Dual-band Noise Matching Method Using GaAs 0.15 µm pHEMT", venue:"IEEE TCAS II", tag:"" },
+  { pub_type:"journal", year:"2024", authors:"Min-Su Kim", title:"Single-Input Multiple-Output (SIMO) Cascode Low-Noise Amplifier with Switchable Degeneration Inductor for Carrier Aggregation", venue:"Sensors", tag:"" },
+  { pub_type:"journal", year:"2024", authors:"Min-Su Kim", title:"Implementation and Measurement of Low-Noise Amplifier Using RF Short-Circuit Capacitor", venue:"JKIEES", tag:"" },
+  { pub_type:"journal", year:"2023", authors:"Byunghun Ko", title:"A 39/48 GHz Switchless Reconfigurable Low Noise Amplifier Using Common Gate and Coupled-Line-Based Diplexer", venue:"IEEE TCAS II", tag:"" },
+  { pub_type:"journal", year:"2023", authors:"Min-Su Kim", title:"RFSOI Low-Noise Amplifier Using RC Feedback and Series Inductive-Peaking Techniques For 5G New Radio application", venue:"Sensors", tag:"" },
+  { pub_type:"journal", year:"2023", authors:"Taejoo Sim", title:"High-Q Transformer Neutralization Technique for W-Band Dual-Band LNA Using 0.1µm GaAs pHEMT Technology", venue:"JEES", tag:"" },
+  { pub_type:"journal", year:"2022", authors:"Sunwoo Lee", title:"A W-band Amplifier with a New Wide-Band Interstage Matching Technique Using Self-Resonance of a Microstrip-Coupled Line", venue:"IEEE ACCESS", tag:"" },
+  { pub_type:"journal", year:"2021", authors:"Min-Su Kim", title:"An ESD and Interference-Robust Protection Circuit for Cascode Low-Noise Amplifier in CMOS-SOI Technology", venue:"IEEE ACCESS", tag:"" },
+  { pub_type:"journal", year:"2021", authors:"Min-Su Kim", title:"The Demonstration of S2P Converter with Address Allocation Method Using 28nm CMOS Technology", venue:"MDPI Applied Sciences", tag:"" },
+  { pub_type:"journal", year:"2021", authors:"Min-Su Kim", title:"A Broadband Gain Amplifier Designed with the Models for Package and Diode Using 0.5 µm GaAs E-pHEMT Process", venue:"MDPI Electronics", tag:"" },
+  { pub_type:"journal", year:"2021", authors:"Heesauk Jhon", title:"Cost-Effective 4 GHz VCO Using Only Miniature Spirals Realized in a 0.18 µm CMOS Process for WSN Applications", venue:"MDPI Electronics", tag:"" },
+  { pub_type:"journal", year:"2021", authors:"Min-Su Kim", title:"Optimum Layout of Low Power LC Based Digitally Controlled Oscillator for Bluetooth Low Energy in a 4G/5G LTE System", venue:"MDPI Applied Sciences", tag:"" },
+  { pub_type:"journal", year:"2021", authors:"김민수", title:"CMOS 28nm 직렬-병렬 변환기 설계", venue:"한국전자파학회 Vol.32 No.4 특집호 (KCI)", tag:"" },
+  { pub_type:"conference", year:"2025", authors:"김윤형", title:"EM 기반 소형 윌킨슨 전력 분배기 설계", venue:"한국전기전자학회 하계학술대회 (2025.08.13)", tag:"" },
+  { pub_type:"conference", year:"2025", authors:"김강현", title:"2차 고조파 제거 및 광대역 매칭을 갖춘 GaN HEMT 전력 증폭기 설계", venue:"한국전기전자학회 하계학술대회 (2025.08.13)", tag:"장려상" },
+  { pub_type:"conference", year:"2025", authors:"김민규", title:"2차 고조파 제거 바이어스 라인을 통합한 10W GaN HEMT 전력 증폭기 설계", venue:"한국전기전자학회 하계학술대회 (2025.08.13)", tag:"" },
+  { pub_type:"conference", year:"2025", authors:"서윤서", title:"입력 지연 시간과 Multi-Tap 지연을 이용한 Duty 제어 PWM 생성 회로", venue:"한국전기전자학회 하계학술대회 (2025.08.13)", tag:"" },
+  { pub_type:"conference", year:"2024", authors:"김일준", title:"독립적인 RF 프론트-엔드 모듈을 위한 고집적 저잡음 증폭기 설계", venue:"한국전자파학회 동계학술대회 (2024.01.15)", tag:"" },
+  { pub_type:"conference", year:"2024", authors:"김일준", title:"C-V2X용 Full EM 기반 6GHz RFSOI 저잡음 증폭기 설계", venue:"한국전자파학회 하계학술대회 (2024.08.22~23)", tag:"" },
+  { pub_type:"conference", year:"2024", authors:"박수홍", title:"6G 대역을 위한 헤어핀 구조 대역통과 필터 설계", venue:"한국전자파학회 하계학술대회 (2024.08.22~23)", tag:"" },
+  { pub_type:"conference", year:"2024", authors:"박근원", title:"High-speed용 50 MHz 클럭 32 bit SPI(Serial Peripheral Interface) slave 설계", venue:"한국전자파학회 하계학술대회 (2024.08.22~23)", tag:"" },
+  { pub_type:"conference", year:"2024", authors:"이형민", title:"모듈레벨 고주파 PSRR 향상을 위한 LDO 설계", venue:"한국전자파학회 하계학술대회 (2024.08.22~23)", tag:"우수상" },
+  { pub_type:"conference", year:"2024", authors:"김성혁", title:"A 5.9/26.5GHz Dual-Band Concurrent Low Noise Amplifier for 5G NR C-V2X", venue:"2024 APMC", tag:"" },
+  { pub_type:"conference", year:"2023", authors:"김민수", title:"ESD 보호회로와 바이패스를 포함하는 5G NR n77용 RF-SOI 저잡음 증폭기 설계", venue:"한국전자파학회 동계학술대회 (2023.01.16)", tag:"" },
+  { pub_type:"conference", year:"2023", authors:"김정규", title:"안정화 회로를 포함한 2.14GHz GaN 저잡음 증폭기 설계", venue:"한국전자파학회 하계학술대회 학부생논문경진대회 (2023.08.25)", tag:"" },
+  { pub_type:"conference", year:"2023", authors:"문규현", title:"GaN 트랜지스터를 이용한 2.16 GHz 전력증폭기 설계", venue:"한국전자파학회 하계학술대회 학부생논문경진대회 (2023.08.25)", tag:"" },
+  { pub_type:"conference", year:"2022", authors:"김민수", title:"5G NR용 Sub-6GHz n79대역 멀티이득 캐스코드 저잡음 증폭기 설계", venue:"한국전자파학회 하계학술대회 (2022.08.17)", tag:"" },
+  { pub_type:"patent", year:"2026", authors:"Min-Su Kim", title:"가변 저항을 이용한 dc 결합 광대역 전력 분배기 및 그 제어 방법", venue:"출원번호 10-2026-0231405", tag:"" },
+  { pub_type:"patent", year:"2025", authors:"Min-Su Kim", title:"감쇄기를 이용한 회로 바이패스 시스템 및 방법", venue:"출원번호 10-2025-0115015", tag:"" },
+  { pub_type:"patent", year:"2025", authors:"Min-Su Kim", title:"군집 위성 내 위성들 간 보조 전력을 위한 무선전력 전송 시스템 및 방법", venue:"출원번호 10-2025-0152764", tag:"" },
+  { pub_type:"patent", year:"2025", authors:"Min-Su Kim", title:"해상 풍력 단지 내 송전 시스템을 위한 무선 전력 공급 시스템", venue:"출원번호 10-2025-0152782", tag:"" },
+  { pub_type:"patent", year:"2021", authors:"Min-Su Kim", title:"Amplifier with second-harmonic trap", venue:"US Patent 등록번호 US10536119B2 (등록일 2020.01.14)", tag:"미국등록" },
+  { pub_type:"award", year:"2025", authors:"지도교수: 김민수 (학생: 김강현)", title:"학부생 경진대회 장려상", venue:"한국전기전자학회 하계학술대회", tag:"" },
+  { pub_type:"award", year:"2024", authors:"지도교수: 김민수 (학생: 이형민)", title:"학부생 경진대회 우수 논문상", venue:"한국전자파학회 하계학술대회", tag:"" },
+  { pub_type:"award", year:"2019", authors:"지도교수: 김민수", title:"사회맞춤형 LINC+ 경진대회 교육부장관상", venue:"교육부", tag:"" },
+  { pub_type:"award", year:"2008", authors:"Min-Su Kim", title:"IEEE Student Efficiency Competition Outstanding Achievement Award", venue:"IEEE", tag:"" }
+];
+
+let XSPACE = [
+  { period:"2026 하계", badge:"xRFIC × BADA Lab", title:"성층권 고고도 풍선 CubeSat 릴레이 통신 성공", detail:"라즈베리파이 기반 CubeSat 1·2호기 및 433MHz LoRa 지상국을 구축해 성층권 사진 촬영 및 회수 임무를 성공적으로 마쳤습니다.", image_url:"" },
+  { period:"2026.06.05", badge:"Rocket Test", title:"xSPACE 1호기 로켓 발사 및 낙하산 분출 시험", detail:"3D 프린터로 자체 제작한 로켓 바디(T1~T4호기)의 1차 발사 테스트와 연소·낙하산 분출 시험을 진행했습니다.", image_url:"" },
+  { period:"2025.07 ~ 08", badge:"PBL 프로젝트", title:"정지형 CubeSat 환경 원격 관측 시스템 구축 성공", detail:"구성원: 김민규(리더), 김강현, 김윤형, 강지원, 서윤서. 온습도·기압 센서, LoRa 통신, 태양광 전원, 3D 모델링 큐브셋으로 원격 관측을 구현했습니다.", image_url:"" }
+];
+
+let GALLERY = [
+  { category:"life", date:"2026.02", title:"졸업을 축하합니다", detail:"김강현, 김민규, 강지원, 서윤서, 김윤형 학생의 졸업을 축하합니다. ^^", image_url:"" },
+  { category:"life", date:"2025.12", title:"2025년 연구실 마무리 회식", detail:"김강현·김민규·김윤형·서윤서 학부연구생 및 이성호 박사과정과 함께 한 해를 마무리했습니다.", image_url:"" },
+  { category:"conf", date:"2025.08", title:"2025년 한국전기전자학회 & MT", detail:"학술대회 포스터 발표 및 연구실 MT 진행", image_url:"" },
+  { category:"life", date:"2025.05", title:"스승의 날", detail:"항상 감사할 줄 알고 열심히 하는 학생들 덕분에 큰 힘을 얻습니다. 고맙습니다. ^^", image_url:"" },
+  { category:"conf", date:"2024.08", title:"2024년 하계 한국전자파학회 MT & OB 초청", detail:"하계 학술대회 발표 및 졸업생(OB) 초청 자리", image_url:"" },
+  { category:"edu", date:"2024.07", title:"반도체 디지털 회로 설계 교육", detail:"한국폴리텍 성남캠퍼스 서종현 교수님 초청 비교과 교육", image_url:"" }
+];
+
 const esc = s => (s||"").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-
-function renderProjects(status="all") {
-  const list = PROJECTS.filter(p => status==="all" || p.s===status);
-  document.getElementById("projGrid").innerHTML = list.map(p => `
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-        <span class="pill ${p.s==='ongoing'?'pill-green':'pill-gray'}">${p.s==='ongoing'?'진행중':'완료'}</span>
-        <span style="font-size:12px;color:var(--slate-500);font-weight:600;">${p.p}</span>
-      </div>
-      <h4 style="font-size:15px;color:var(--navy-900);margin-bottom:6px;word-break:keep-all;">${p.t}</h4>
-      <div style="font-size:12.5px;color:var(--slate-500);">${p.org} · ${p.host}</div>
-    </div>
-  `).join("");
-}
-
-function renderDesigns() {
-  document.getElementById("designGrid").innerHTML = DESIGNS.map(d => `
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-        <span class="pill pill-dark">${d.proc}</span>
-        <span style="font-size:12.5px;font-weight:700;color:var(--cyan-600);">${d.d}</span>
-      </div>
-      <h3 style="font-size:17px;color:var(--navy-900);margin-bottom:10px;">${d.t}</h3>
-      <ul class="advisor-list">${d.specs.map(s=>`<li>• ${s}</li>`).join("")}</ul>
-    </div>
-  `).join("");
-}
-
-function renderMembers(group="all") {
-  const list = MEMBERS.filter(m => group==="all" || m.g===group);
-  document.getElementById("memberGrid").innerHTML = list.map(m => `
-    <div class="card" style="padding:16px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <strong style="font-size:16px;color:var(--navy-900);">${m.n}</strong>
-        <span class="pill pill-gray">${m.g==='grad'?'대학원':m.g}</span>
-      </div>
-      <div style="font-size:12px;color:var(--slate-500);margin-bottom:6px;">${m.y} · ${m.f}</div>
-      <span class="pill ${m.type==='job'?'pill-green':'pill-amber'}">${m.r}</span>
-    </div>
-  `).join("");
-}
-
-let curPubType = "journal", curPubQuery = "";
-function renderPubs() {
-  const q = curPubQuery.toLowerCase();
-  const list = PUBS[curPubType].filter(p => !q || (p.t+p.a+p.v+p.y).toLowerCase().includes(q));
-  document.getElementById("pubList").innerHTML = list.length ? list.map(p => `
-    <div class="pub-item">
-      <div class="pub-main">
-        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-          <span class="pill pill-dark">${p.y}</span>
-          <span style="font-size:12.5px;font-weight:600;color:var(--cyan-600);">${esc(p.a)}</span>
-          ${p.tag ? `<span class="pill pill-amber">${p.tag}</span>` : ""}
-        </div>
-        <div class="pub-title">${esc(p.t)}</div>
-        <div class="pub-meta">${esc(p.v)}</div>
-      </div>
-    </div>
-  `).join("") : '<div class="status-msg">검색 결과가 없습니다.</div>';
-}
-
-function renderXspace() {
-  document.getElementById("xspaceGrid").innerHTML = XSPACE.map(x => `
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-        <span class="pill pill-dark">${x.b}</span>
-        <span style="font-size:12px;font-weight:700;color:var(--cyan-600);">${x.y}</span>
-      </div>
-      <h3 style="font-size:17px;color:var(--navy-900);margin-bottom:8px;">${x.t}</h3>
-      <p style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">${x.d}</p>
-    </div>
-  `).join("");
-}
-
-function renderGallery(cat="all") {
-  const list = GALLERY.filter(g => cat==="all" || g.c===cat);
-  const labels = { conf:"학회·MT", edu:"비교과·교육", life:"졸업·일상" };
-  document.getElementById("galGrid").innerHTML = list.map(g => `
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-        <span class="pill">${labels[g.c]}</span>
-        <span style="font-size:12px;color:var(--slate-500);font-weight:600;">${g.y}</span>
-      </div>
-      <h4 style="font-size:15.5px;color:var(--navy-900);margin-bottom:6px;">${g.t}</h4>
-      <p style="font-size:13px;color:var(--slate-700);word-break:keep-all;">${g.d}</p>
-    </div>
-  `).join("");
-}
-
-/* --- GOOGLE SHEETS LIVE NEWS --- */
-let newsItems = [], curNewsCat = "all", curNewsQ = "";
 function parseCSV(text) {
   const rows=[]; let row=[], cur="", inQ=false;
   for (let i=0;i<text.length;i++) {
@@ -693,6 +497,136 @@ function driveImg(url) {
   const m = url.trim().match(/\/d\/([a-zA-Z0-9_-]+)/) || url.trim().match(/[?&]id=([a-zA-Z0-9_-]+)/);
   return m && m[1] ? "https://drive.google.com/thumbnail?id="+m[1]+"&sz=w1000" : url.trim();
 }
+function csvToObjects(csvText) {
+  const rows = parseCSV(csvText);
+  if (rows.length < 2) return [];
+  const h = rows[0].map(x => x.trim().toLowerCase());
+  return rows.slice(1).filter(r => r.some(c => c !== "")).map(r => {
+    const o = {}; h.forEach((k,i) => o[k] = r[i] || ""); return o;
+  });
+}
+
+function applyConfig() {
+  ["hero_badge","hero_title","hero_desc","intro_ko_title","intro_ko_body","intro_en_title","intro_en_body","research_1_title","research_1_desc","research_2_title","research_2_desc","research_3_title","research_3_desc","advisor_name","advisor_info","recruit_title","recruit_desc","footer_left","footer_right"].forEach(k => {
+    const el = document.getElementById("cfg_"+k);
+    if (el && CONFIG[k]) el.textContent = CONFIG[k];
+  });
+  if (CONFIG.advisor_scholar) document.getElementById("cfg_advisor_scholar").href = CONFIG.advisor_scholar;
+  document.getElementById("cfg_partners_uni").innerHTML = (CONFIG.partners_uni||"").split(",").filter(Boolean).map(x=>`<span class="partner-chip">${esc(x.trim())}</span>`).join("");
+  document.getElementById("cfg_partners_org").innerHTML = (CONFIG.partners_org||"").split(",").filter(Boolean).map(x=>`<span class="partner-chip">${esc(x.trim())}</span>`).join("");
+  document.getElementById("cfg_equipment_list").innerHTML = (CONFIG.equipment_list||"").split("|").filter(Boolean).map(x=>`<li>• ${esc(x.trim())}</li>`).join("");
+  document.getElementById("cfg_advisor_career").innerHTML = (CONFIG.advisor_career||"").split("|").filter(Boolean).map(x=>`<li>• ${esc(x.trim())}</li>`).join("");
+  document.getElementById("cfg_advisor_awards").innerHTML = (CONFIG.advisor_awards||"").split("|").filter(Boolean).map(x=>`<li>• ${esc(x.trim())}</li>`).join("");
+}
+
+let curProjStatus = "all";
+function renderProjects() {
+  const list = PROJECTS.filter(p => curProjStatus==="all" || p.status===curProjStatus);
+  document.getElementById("projGrid").innerHTML = list.map(p => `
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <span class="pill ${p.status==='ongoing'?'pill-green':'pill-gray'}">${p.status==='ongoing'?'진행중':'완료'}</span>
+        <span style="font-size:12px;color:var(--slate-500);font-weight:600;">${esc(p.period)}</span>
+      </div>
+      <h4 style="font-size:15px;color:var(--navy-900);margin-bottom:6px;word-break:keep-all;">${esc(p.title)}</h4>
+      <div style="font-size:12.5px;color:var(--slate-500);">${esc(p.agency)} · ${esc(p.host)}</div>
+    </div>
+  `).join("");
+}
+
+function renderDesigns() {
+  document.getElementById("designGrid").innerHTML = DESIGNS.map(d => {
+    const img = driveImg(d.image_url);
+    return `
+      <div class="card" style="padding:0;overflow:hidden;">
+        ${img ? `<div class="thumb-wrap"><img class="thumb-img" src="${esc(img)}" alt="${esc(d.title)}" loading="lazy"></div>` : ""}
+        <div style="padding:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span class="pill pill-dark">${esc(d.process)}</span>
+            <span style="font-size:12.5px;font-weight:700;color:var(--cyan-600);">${esc(d.date)}</span>
+          </div>
+          <h3 style="font-size:17px;color:var(--navy-900);margin-bottom:10px;">${esc(d.title)}</h3>
+          <ul class="advisor-list">${(d.specs||"").split("|").filter(Boolean).map(s=>`<li>• ${esc(s.trim())}</li>`).join("")}</ul>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+let curMemberGroup = "all";
+function renderMembers() {
+  const list = MEMBERS.filter(m => curMemberGroup==="all" || m.cohort===curMemberGroup);
+  document.getElementById("memberGrid").innerHTML = list.map(m => {
+    const img = driveImg(m.photo_url);
+    return `
+      <div class="card" style="padding:16px;">
+        ${img ? `<div class="thumb-wrap" style="border-radius:10px;margin-bottom:10px;"><img class="thumb-img" src="${esc(img)}" alt="${esc(m.name)}" loading="lazy"></div>` : ""}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <strong style="font-size:16px;color:var(--navy-900);">${esc(m.name)}</strong>
+          <span class="pill pill-gray">${m.cohort==='grad'?'대학원':esc(m.cohort)}</span>
+        </div>
+        <div style="font-size:12px;color:var(--slate-500);margin-bottom:6px;">${esc(m.degree)} · ${esc(m.field)}</div>
+        <span class="pill ${m.type==='job'?'pill-green':'pill-amber'}">${esc(m.status)}</span>
+      </div>`;
+  }).join("");
+}
+
+let curPubType = "journal", curPubQuery = "";
+function renderPubs() {
+  const q = curPubQuery.toLowerCase();
+  const list = PUBS.filter(p => p.pub_type===curPubType && (!q || (p.title+p.authors+p.venue+p.year).toLowerCase().includes(q)));
+  document.getElementById("pubList").innerHTML = list.length ? list.map(p => `
+    <div class="pub-item">
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+        <span class="pill pill-dark">${esc(p.year)}</span>
+        <span style="font-size:12.5px;font-weight:600;color:var(--cyan-600);">${esc(p.authors)}</span>
+        ${p.tag ? `<span class="pill pill-amber">${esc(p.tag)}</span>` : ""}
+      </div>
+      <div class="pub-title">${esc(p.title)}</div>
+      <div class="pub-meta">${esc(p.venue)}</div>
+    </div>
+  `).join("") : '<div class="status-msg">검색 결과가 없습니다.</div>';
+}
+
+function renderXspace() {
+  document.getElementById("xspaceGrid").innerHTML = XSPACE.map(x => {
+    const img = driveImg(x.image_url);
+    return `
+      <div class="card" style="padding:0;overflow:hidden;">
+        ${img ? `<div class="thumb-wrap"><img class="thumb-img" src="${esc(img)}" alt="${esc(x.title)}" loading="lazy"></div>` : ""}
+        <div style="padding:20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span class="pill pill-dark">${esc(x.badge)}</span>
+            <span style="font-size:12px;font-weight:700;color:var(--cyan-600);">${esc(x.period)}</span>
+          </div>
+          <h3 style="font-size:17px;color:var(--navy-900);margin-bottom:8px;">${esc(x.title)}</h3>
+          <p style="font-size:13.5px;color:var(--slate-700);word-break:keep-all;">${esc(x.detail)}</p>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+let curGalCat = "all";
+function renderGallery() {
+  const list = GALLERY.filter(g => curGalCat==="all" || g.category===curGalCat);
+  const labels = { conf:"학회·MT", edu:"비교과·교육", life:"졸업·일상" };
+  document.getElementById("galGrid").innerHTML = list.map(g => {
+    const img = driveImg(g.image_url);
+    return `
+      <div class="card" style="padding:0;overflow:hidden;">
+        ${img ? `<div class="thumb-wrap"><img class="thumb-img" src="${esc(img)}" alt="${esc(g.title)}" loading="lazy"></div>` : ""}
+        <div style="padding:20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span class="pill">${labels[g.category]||esc(g.category)}</span>
+            <span style="font-size:12px;color:var(--slate-500);font-weight:600;">${esc(g.date)}</span>
+          </div>
+          <h4 style="font-size:15.5px;color:var(--navy-900);margin-bottom:6px;">${esc(g.title)}</h4>
+          <p style="font-size:13px;color:var(--slate-700);word-break:keep-all;">${esc(g.detail)}</p>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+let newsItems = [], curNewsCat = "all", curNewsQ = "";
 function renderNews() {
   const q = curNewsQ.toLowerCase();
   const list = newsItems.filter(it => (curNewsCat==="all"||it.category===curNewsCat) && (!q||(it.title+it.summary+it.detail+it.badge).toLowerCase().includes(q)));
@@ -713,16 +647,34 @@ function renderNews() {
       </article>`;
   }).join("") : '<div class="status-msg">조건에 맞는 소식이 없습니다.</div>';
 }
-fetch(CSV_URL).then(r=>r.text()).then(t=>{
-  const rows=parseCSV(t), h=rows[0].map(x=>x.toLowerCase());
-  newsItems = rows.slice(1).filter(r=>r.some(c=>c!=="")).map(r=>{
-    const o={}; h.forEach((k,i)=>o[k]=r[i]||"");
-    return { date:o.date||"", category:(o.category||"").toLowerCase(), badge:o.badge||"", title:o.title||"", summary:o.summary||"", detail:o.detail||"", image_url:o.image_url||"" };
-  });
-  renderNews();
-}).catch(()=>{ document.getElementById("newsGrid").innerHTML='<div class="status-msg">소식을 불러오지 못했습니다.</div>'; });
 
-/* --- EVENTS --- */
+async function syncAllFromSheets() {
+  if (SHEET_URLS.news) {
+    try { newsItems = csvToObjects(await (await fetch(SHEET_URLS.news)).text()).map(o => ({ ...o, category:(o.category||"").toLowerCase() })); renderNews(); } catch(e){}
+  }
+  if (SHEET_URLS.config) {
+    try { csvToObjects(await (await fetch(SHEET_URLS.config)).text()).forEach(r => { if (r.key) CONFIG[r.key.trim()] = r.value || ""; }); applyConfig(); } catch(e){}
+  }
+  if (SHEET_URLS.projects) {
+    try { const rows = csvToObjects(await (await fetch(SHEET_URLS.projects)).text()); if (rows.length) { PROJECTS = rows; renderProjects(); } } catch(e){}
+  }
+  if (SHEET_URLS.designs) {
+    try { const rows = csvToObjects(await (await fetch(SHEET_URLS.designs)).text()); if (rows.length) { DESIGNS = rows; renderDesigns(); } } catch(e){}
+  }
+  if (SHEET_URLS.members) {
+    try { const rows = csvToObjects(await (await fetch(SHEET_URLS.members)).text()); if (rows.length) { MEMBERS = rows; renderMembers(); } } catch(e){}
+  }
+  if (SHEET_URLS.publications) {
+    try { const rows = csvToObjects(await (await fetch(SHEET_URLS.publications)).text()); if (rows.length) { PUBS = rows.map(r => ({ ...r, pub_type:(r.pub_type||"").toLowerCase() })); renderPubs(); } } catch(e){}
+  }
+  if (SHEET_URLS.xspace) {
+    try { const rows = csvToObjects(await (await fetch(SHEET_URLS.xspace)).text()); if (rows.length) { XSPACE = rows; renderXspace(); } } catch(e){}
+  }
+  if (SHEET_URLS.gallery) {
+    try { const rows = csvToObjects(await (await fetch(SHEET_URLS.gallery)).text()); if (rows.length) { GALLERY = rows; renderGallery(); } } catch(e){}
+  }
+}
+
 document.getElementById("menuToggle").onclick = () => document.getElementById("navLinks").classList.toggle("open");
 document.getElementById("copyEmailBtn").onclick = function() {
   navigator.clipboard.writeText("msmy970@mnu.ac.kr").then(()=>{
@@ -738,14 +690,14 @@ function bindTabs(id, cb) {
 }
 bindTabs("newsTabs", b => { curNewsCat=b.dataset.cat; renderNews(); });
 document.getElementById("newsSearch").oninput = e => { curNewsQ=e.target.value; renderNews(); };
-bindTabs("projTabs", b => renderProjects(b.dataset.status));
-bindTabs("memberTabs", b => renderMembers(b.dataset.group));
+bindTabs("projTabs", b => { curProjStatus=b.dataset.status; renderProjects(); });
+bindTabs("memberTabs", b => { curMemberGroup=b.dataset.group; renderMembers(); });
 bindTabs("pubTabs", b => { curPubType=b.dataset.type; renderPubs(); });
 document.getElementById("pubSearch").oninput = e => { curPubQuery=e.target.value; renderPubs(); };
-bindTabs("galTabs", b => renderGallery(b.dataset.cat));
+bindTabs("galTabs", b => { curGalCat=b.dataset.cat; renderGallery(); });
 
-/* INIT */
-renderProjects(); renderDesigns(); renderMembers(); renderPubs(); renderXspace(); renderGallery();
+applyConfig(); renderProjects(); renderDesigns(); renderMembers(); renderPubs(); renderXspace(); renderGallery();
+syncAllFromSheets();
 </script>
 </body>
 </html>
