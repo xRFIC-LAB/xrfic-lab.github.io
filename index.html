@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xRFIC Lab | 국립목포대학교 차세대 RFIC & 우주·국방 반도체 연구실</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <style>
+    :root {
+      --navy-950: #06101f;
+      --navy-900: #0b192c;
+      --navy-800: #132845;
+      --cyan-400: #38bdf8;
+      --cyan-500: #0ea5e9;
+      --cyan-600: #0284c7;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-500: #64748b;
+      --slate-700: #334155;
+      --slate-900: #0f172a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+      color: var(--slate-900);
+      background: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* 상단 네비게이션 */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 16, 31, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.16);
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+    }
+    .brand span { color: var(--cyan-400); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cyan-400); }
+    .nav-cta {
+      background: var(--cyan-500);
+      color: #06101f !important;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--cyan-400); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
+      font-size: 20px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Hero 배너 */
+    .hero {
+      background: radial-gradient(circle at 80% 25%, rgba(14, 165, 233, 0.22), transparent 50%),
+                  linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%);
+      color: #ffffff;
+      padding: 72px 20px 84px;
+    }
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--cyan-400);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4.2vw, 46px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      word-break: keep-all;
+    }
+    .hero p {
+      font-size: clamp(14.5px, 1.8vw, 17px);
+      color: #cbd5e1;
+      margin-bottom: 28px;
+      max-width: 600px;
+      word-break: keep-all;
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-primary {
+      background: var(--cyan-500);
+      color: #06101f;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14.5px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-primary:hover { background: var(--cyan-400); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14.5px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--cyan-400); background: rgba(56, 189, 248, 0.1); }
+    .hero-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+    }
+    .hero-visual svg { width: 100%; max-width: 260px; height: auto; }
+
+    /* 핵심 지표 4칸 */
+    .metrics-wrap {
+      max-width: 1180px;
+      margin: -36px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+    .metric-val {
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 4px;
+    }
+    .metric-val span { color: var(--cyan-600); }
+    .metric-label {
+      font-size: 13px;
+      color: var(--slate-500);
+      font-weight: 600;
+    }
+
+    /* 공통 섹션 */
+    section {
+      padding: 76px 20px;
+    }
+    .sec-gray { background: var(--slate-50); }
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .sec-header {
+      margin-bottom: 34px;
+    }
+    .sec-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--cyan-600);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .sec-title {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-bottom: 8px;
+    }
+    .sec-desc {
+      font-size: 15px;
+      color: var(--slate-500);
+      word-break: keep-all;
+    }
+
+    /* 핵심 연구 3단 카드 */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .research-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 26px 22px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .research-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+    }
+    .r-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #e0f2fe;
+      color: var(--cyan-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .research-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--navy-900);
+    }
+    .research-card p {
+      font-size: 14px;
+      color: var(--slate-700);
+      word-break: keep-all;
+    }
+
+    /* 구글 시트 연동 소식 & 성과 */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tab-btn {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--slate-700);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { border-color: var(--cyan-600); color: var(--cyan-600); }
+    .tab-btn.active {
+      background: var(--navy-900);
+      color: #ffffff;
+      border-color: var(--navy-900);
+    }
+    .search-input {
+      width: 280px;
+      max-width: 100%;
+      padding: 9px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      font-size: 13.5px;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--cyan-600); }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .news-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+    }
+    .thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--navy-900), #1e3a5f 60%, #0e7490);
+      overflow: hidden;
+    }
+    .thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      padding: 16px;
+      text-align: center;
+    }
+    .thumb-placeholder small {
+      color: var(--cyan-400);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(6, 16, 31, 0.85);
+      color: var(--cyan-400);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+    .date-pill {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.78);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .news-body { padding: 18px; }
+    .news-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy-900);
+      margin-bottom: 8px;
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+    .news-summary {
+      font-size: 13.5px;
+      color: var(--slate-500);
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+    .news-detail {
+      display: none;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 13.5px;
+      color: var(--slate-700);
+      white-space: pre-line;
+      word-break: keep-all;
+    }
+    .news-card.open .news-detail { display: block; }
+    .toggle-hint {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--cyan-600);
+    }
+
+    /* Join Us 배너 */
+    .join-box {
+      background: linear-gradient(135deg, var(--navy-950), var(--navy-800));
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 44px 36px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .join-box h2 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 10px; }
+    .join-box p { color: #cbd5e1; font-size: 15px; max-width: 620px; word-break: keep-all; }
+    .copy-btn {
+      background: var(--cyan-500);
+      color: #06101f;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-size: 14.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: var(--cyan-400); }
+
+    footer {
+      background: var(--navy-950);
+      color: #94a3b8;
+      padding: 36px 20px;
+      font-size: 13.5px;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .status-msg {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 16px;
+      color: var(--slate-500);
+    }
+
+    /* 반응형 (태블릿 / 모바일) */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: left; }
+      .hero-visual { display: none; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .research-grid, .news-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        background: var(--navy-950);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .nav-links.open { display: flex; }
+      .research-grid, .news-grid { grid-template-columns: 1fr; }
+      .controls { flex-direction: column; align-items: stretch; }
+      .search-input { width: 100%; }
+      .join-box { padding: 30px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="brand">xRFIC <span>Lab</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#research">Research</a>
+        <a href="#news">News & Achievements</a>
+        <a href="#join" class="nav-cta">Join Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-pill">국립목포대학교 반도체공학과 · xRFIC 연구실</span>
+        <h1>Next-Gen RFIC &<br />Space Semiconductor Lab</h1>
+        <p>6G 저궤도 위성 통신, 우주·항공 내방사선(TID) 화합물반도체 신뢰성, 차세대 국방 무인체계용 초고주파 집적회로(RFIC/MMIC) 및 시스템을 연구합니다.</p>
+        <div class="hero-btns">
+          <a href="#news" class="btn-primary">최신 성과 및 소식 보기</a>
+          <a href="#join" class="btn-outline">석박사 · 학부연구생 지원</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 240 240" fill="none">
+          <circle cx="120" cy="120" r="95" stroke="#38bdf8" stroke-opacity="0.22" stroke-dasharray="6 6"/>
+          <circle cx="120" cy="120" r="64" stroke="#38bdf8" stroke-opacity="0.35"/>
+          <rect x="82" y="82" width="76" height="76" rx="14" fill="#0b192c" stroke="#38bdf8" stroke-width="2.5"/>
+          <text x="120" y="127" text-anchor="middle" fill="#38bdf8" font-size="22" font-weight="800" font-family="sans-serif">xRFIC</text>
+          <circle cx="188" cy="52" r="8" fill="#38bdf8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics-wrap">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val"><span>3</span>건</div>
+        <div class="metric-label">국가 전략기술 R&D 과제</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">Nature · <span>IEEE</span></div>
+        <div class="metric-label">국제 저명 학술지 게재</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val"><span>Probe</span>-Station</div>
+        <div class="metric-label">자체 칩 DC/RF 측정 환경</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val"><span>xSPACE</span></div>
+        <div class="metric-label">큐브셋 · 로켓 전공동아리</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="research">
+    <div class="container">
+      <div class="sec-header">
+        <div class="sec-tag">Core Research</div>
+        <h2 class="sec-title">핵심 연구 분야</h2>
+        <p class="sec-desc">설계(ADS/Layout)부터 자체 Probe-Station 측정 및 방사선 신뢰성 검증까지 전주기 반도체 연구를 수행합니다.</p>
+      </div>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="r-icon">⚡</div>
+          <h3>RFIC & MMIC 회로 설계</h3>
+          <p>Sub-6 GHz RF-SOI LNA부터 밀리미터파(Q/V 대역) GaAs/GaN 고출력 전력증폭기 및 송수신 Front-end 모듈을 설계·제작합니다.</p>
+        </div>
+        <div class="research-card">
+          <div class="r-icon">🛡️</div>
+          <h3>우주·항공 내방사선(TID) 신뢰성</h3>
+          <p>한국원자력연구원 등과 협력하여 감마선 조사 환경에서 화합물반도체 능동·수동소자의 성능 열화 메커니즘을 정량 규명합니다.</p>
+        </div>
+        <div class="research-card">
+          <div class="r-icon">🛰️</div>
+          <h3>6G 위성 통신 & xSPACE</h3>
+          <p>저궤도 위성 빔포밍 시스템과 더불어 학부 전공동아리 xSPACE를 통해 성층권 큐브셋 릴레이 통신 및 로켓 발사 실무 프로젝트를 운영합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="sec-gray">
+    <div class="container">
+      <div class="sec-header">
+        <div class="sec-tag">Live Updates via Google Sheets</div>
+        <h2 class="sec-title">연구실 소식 및 주요 성과</h2>
+        <p class="sec-desc">카드를 클릭하면 상세 내용을 바로 확인하실 수 있습니다.</p>
+      </div>
+
+      <div class="controls">
+        <div class="tabs" id="tabs">
+          <button class="tab-btn active" data-cat="all">전체</button>
+          <button class="tab-btn" data-cat="journal">논문</button>
+          <button class="tab-btn" data-cat="project">국가과제</button>
+          <button class="tab-btn" data-cat="xspace">xSPACE</button>
+          <button class="tab-btn" data-cat="award">수상·소식</button>
+        </div>
+        <input type="text" id="searchInput" class="search-input" placeholder="키워드 검색 (예: GaAs, 6G, 로켓)" />
+      </div>
+
+      <div class="news-grid" id="cardGrid">
+        <div class="status-msg">연구실 최신 소식을 불러오는 중입니다...</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="container">
+      <div class="join-box">
+        <div>
+          <h2>xRFIC 연구실과 함께할 인재를 모집합니다</h2>
+          <p>채용연계형 석·박사 과정, 학부연구생, 하계 PBL 및 xSPACE 동아리 참여에 관심 있는 학생은 언제든 편하게 문의해 주세요. (자연과학1호관 2123호)</p>
+        </div>
+        <button class="copy-btn" id="copyEmailBtn">📧 msmy970@mnu.ac.kr 복사</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>국립목포대학교 xRFIC 연구실</strong> (지도교수: 김민수)</div>
+      <div>전라남도 무안군 청계면 영산로 1666, 자연과학1호관 2123호 · msmy970@mnu.ac.kr</div>
+    </div>
+  </footer>
+
+  <script>
+    const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvyvndwtprO5C7EzzvXyKABasIwyfUqp9BX6nbYFnHqjp5FP8SvSvQnVmJVzX0WyI7hSQweBywT7TM/pub?gid=2106461104&single=true&output=csv";
+
+    let allItems = [];
+    let currentCat = "all";
+    let searchQuery = "";
+
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+
+    document.getElementById("copyEmailBtn").addEventListener("click", function () {
+      navigator.clipboard.writeText("msmy970@mnu.ac.kr").then(() => {
+        const prev = this.textContent;
+        this.textContent = "✅ 이메일 주소가 복사되었습니다!";
+        setTimeout(() => (this.textContent = prev), 2000);
+      });
+    });
+
+    function parseCSV(text) {
+      const rows = [];
+      let row = [], current = "", inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i], next = text[i + 1];
+        if (inQuotes) {
+          if (c === '"' && next === '"') { current += '"'; i++; }
+          else if (c === '"') { inQuotes = false; }
+          else { current += c; }
+        } else {
+          if (c === '"') { inQuotes = true; }
+          else if (c === ',') { row.push(current.trim()); current = ""; }
+          else if (c === '\r' && next === '\n') { row.push(current.trim()); rows.push(row); row = []; current = ""; i++; }
+          else if (c === '\n' || c === '\r') { row.push(current.trim()); rows.push(row); row = []; current = ""; }
+          else { current += c; }
+        }
+      }
+      if (current.length > 0 || row.length > 0) {
+        row.push(current.trim());
+        rows.push(row);
+      }
+      return rows;
+    }
+
+    function convertDriveUrl(url) {
+      if (!url) return "";
+      const trimmed = url.trim();
+      const match = trimmed.match(/\/d\/([a-zA-Z0-9_-]+)/) || trimmed.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      return match && match[1] ? "https://drive.google.com/thumbnail?id=" + match[1] + "&sz=w1000" : trimmed;
+    }
+
+    function escapeHTML(str) {
+      return (str || "").replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+    }
+
+    function renderCards() {
+      const grid = document.getElementById("cardGrid");
+      const filtered = allItems.filter(item => {
+        const matchCat = currentCat === "all" || item.category === currentCat;
+        const q = searchQuery.toLowerCase();
+        const matchSearch = !q ||
+          item.title.toLowerCase().includes(q) ||
+          item.summary.toLowerCase().includes(q) ||
+          item.detail.toLowerCase().includes(q) ||
+          item.badge.toLowerCase().includes(q);
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="status-msg">조건에 맞는 소식이 없습니다.</div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        const imgUrl = convertDriveUrl(item.image_url);
+        const badgeText = escapeHTML(item.badge || item.category || "xRFIC");
+        const thumb = imgUrl
+          ? `<img class="thumb-img" src="${escapeHTML(imgUrl)}" alt="${escapeHTML(item.title)}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+             <div class="thumb-placeholder" style="display:none;"><small>xRFIC LAB</small><strong>${badgeText}</strong></div>`
+          : `<div class="thumb-placeholder"><small>xRFIC LAB</small><strong>${badgeText}</strong></div>`;
+
+        return `
+          <article class="news-card" onclick="toggleCard(this)">
+            <div class="thumb-wrap">
+              ${thumb}
+              <span class="badge">${badgeText}</span>
+              ${item.date ? `<span class="date-pill">${escapeHTML(item.date)}</span>` : ""}
+            </div>
+            <div class="news-body">
+              <h3 class="news-title">${escapeHTML(item.title)}</h3>
+              <p class="news-summary">${escapeHTML(item.summary)}</p>
+              ${item.detail ? `<div class="news-detail">${escapeHTML(item.detail)}</div><span class="toggle-hint">자세히 보기 ▾</span>` : ""}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function toggleCard(el) {
+      const isOpen = el.classList.toggle("open");
+      const hint = el.querySelector(".toggle-hint");
+      if (hint) hint.textContent = isOpen ? "접기 ▴" : "자세히 보기 ▾";
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch(CSV_URL);
+        const rows = parseCSV(await res.text());
+        const headers = rows[0].map(h => h.toLowerCase());
+        allItems = rows.slice(1).filter(r => r.some(c => c !== "")).map(r => {
+          const obj = {};
+          headers.forEach((h, i) => obj[h] = r[i] || "");
+          return {
+            date: obj.date || "",
+            category: (obj.category || "").toLowerCase(),
+            badge: obj.badge || "",
+            title: obj.title || "",
+            summary: obj.summary || "",
+            detail: obj.detail || "",
+            image_url: obj.image_url || ""
+          };
+        });
+        renderCards();
+      } catch (e) {
+        document.getElementById("cardGrid").innerHTML = '<div class="status-msg">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    document.getElementById("tabs").addEventListener("click", e => {
+      const btn = e.target.closest(".tab-btn");
+      if (!btn) return;
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentCat = btn.dataset.cat;
+      renderCards();
+    });
+
+    document.getElementById("searchInput").addEventListener("input", e => {
+      searchQuery = e.target.value;
+      renderCards();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
